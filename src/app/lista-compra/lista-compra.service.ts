@@ -39,8 +39,8 @@ export class ListaCompraService {
       marca: "Hacendado",
       cantidad_neta: "120g x 4",
       Ingredientes: "Leche desnatada, Arandanos o fresas según la versión (7,5%), Agua, Aructosa, Almidon modificado, Aromas...",
-      foto: "https://www.aprendiznutricional.com/wp-content/uploads/2019/05/Yogur-de-proteinas-de-mercadona-arandanos-1.jpg",
-      foto2: "https://www.aprendiznutricional.com/wp-content/uploads/2019/05/Yogur-de-proteinas-de-mercadona-arandanos-2.jpg"
+      foto: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/yogures-protei-nas-1579772653.jpg?crop=1.00xw:0.726xh;0,0.123xh&resize=640:*",
+      foto2: "https://static.openfoodfacts.org/images/products/848/000/021/1514/nutrition_es.34.full.jpg"
     },
     {
       id: "5",

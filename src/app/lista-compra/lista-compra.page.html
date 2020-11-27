@@ -6,7 +6,7 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of producto">
+    <ion-item *ngFor="let item of producto" [routerLink]="['./',item.id]">
       <ion-avatar slot="start">
         <ion-img [src]="item.foto"> </ion-img>
       </ion-avatar>
