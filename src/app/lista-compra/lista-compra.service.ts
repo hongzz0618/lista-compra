@@ -74,4 +74,10 @@ export class ListaCompraService {
       })
     };
   }
+
+  deleteProduct(productId: string) {
+    this.producto = this.producto.filter(item => {
+      return item.id !== productId;
+    });
+  }
 }
