@@ -1,9 +1,9 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Lista de Compra</ion-title>
+    <ion-title>{{ page_name }}</ion-title>
   </ion-toolbar>
 </ion-header>
-
+<!-- <ion-searchbar showCancelButton="focus" ></ion-searchbar> -->
 <ion-content>
   <ion-list>
     <ion-item *ngFor="let item of producto" [routerLink]="['./',item.id]">
@@ -14,3 +14,13 @@
     </ion-item>
   </ion-list>
 </ion-content>
+<!-- <label class="form-label" [innerText]="Xcli" *ngIf="button;else noif"></label>
+<ng-template #noif>
+  <label class="form-label"> {{Xcli}}</label>
+</ng-template>
+<label class="form-label">{{ text }}</label>
+<label class="form-label" *ngFor="let number of log"
+[ngStyle]="{backgroundColor: number>=5?'yellow':'pink'}"
+[ngClass]="{'azul':number===5}">{{ number }}</label>
+<button class="btn btn-primary" [disabled]="text===''" (click)="logmasuno()">X</button>
+<input type="text" class="form-control" [(ngModel)]="text" (input)="targetvalue($event)" (click)="Xclick()"/> -->
