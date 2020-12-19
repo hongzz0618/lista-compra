@@ -6,12 +6,8 @@
 <!-- <ion-searchbar showCancelButton="focus" ></ion-searchbar> -->
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let item of producto" [routerLink]="['./',item.id]">
-      <ion-avatar slot="start">
-        <ion-img [src]="item.foto"> </ion-img>
-      </ion-avatar>
-      <ion-label>{{ item.nombre }}</ion-label>
-    </ion-item>
+    <app-lista-compra-items *ngFor="let item of producto" [routerLink]="['./',item.id]"
+    [item]="item"></app-lista-compra-items>
   </ion-list>
 </ion-content>
 <!-- <label class="form-label" [innerText]="Xcli" *ngIf="button;else noif"></label>
