@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./lista-compra-items.component.scss'],
 })
 export class ListaCompraItemsComponent implements OnInit {
-  @Input() item:{id: string,nombre: string,marca: string,cantidad_neta: string,Ingredientes: string,foto: string,foto2: string};
+  @Input("producto") item:{id: string,nombre: string,marca: string,cantidad_neta: string,Ingredientes: string,foto: string,foto2: string};
   constructor() { }
 
   ngOnInit() {}
