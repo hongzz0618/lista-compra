@@ -8,6 +8,7 @@ import { ListaCompraPageRoutingModule } from './lista-compra-routing.module';
 
 import { ListaCompraPage } from './lista-compra.page';
 import { ListaCompraItemsComponent } from './lista-compra-items/lista-compra-items.component';
+import { ListaCompraButtonComponent } from './lista-compra-button/lista-compra-button.component';
 
 
 @NgModule({
@@ -17,6 +18,6 @@ import { ListaCompraItemsComponent } from './lista-compra-items/lista-compra-ite
     IonicModule,
     ListaCompraPageRoutingModule
   ],
-  declarations: [ListaCompraPage,ListaCompraItemsComponent]
+  declarations: [ListaCompraPage,ListaCompraItemsComponent,ListaCompraButtonComponent]
 })
 export class ListaCompraPageModule {}

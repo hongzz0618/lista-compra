@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { Producto } from './producto.model';
 import { ListaCompraService } from './lista-compra.service';
 
@@ -8,8 +8,12 @@ import { ListaCompraService } from './lista-compra.service';
   styleUrls: ['./lista-compra.page.scss'],
 })
 export class ListaCompraPage implements OnInit {
-
   producto: Producto[];
+  productname = ""
+  productfoto = ""
+
+
+
   page_name = "Lista de Compra"
   text = ""
   blank = ""
@@ -36,5 +40,9 @@ export class ListaCompraPage implements OnInit {
   }
   targetvalue(event: Event) {
     this.text = (<HTMLInputElement>event.target).value
+  }
+
+  onProductAdded(product:Producto) {
+    this.producto.push(product)
   }
 }

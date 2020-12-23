@@ -1,0 +1,16 @@
+<!-- <input type="text" class="form-control" placeholder="nombre" #nameproduct />
+<input type="text" class="form-control" placeholder="foto" #fotoproduct />
+<button class="btn btn-primary" (click)="onAddProduct()">
+  añadir producto
+</button> -->
+<ion-item>
+  <ion-label position="floating">nombre</ion-label>
+  <ion-input [(ngModel)]="name"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label position="floating">foto</ion-label>
+  <ion-input [(ngModel)]="foto"></ion-input>
+</ion-item>
+<ion-button (click)="onAddProduct()">
+  <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+</ion-button>

@@ -17,6 +17,6 @@
 <label class="form-label">{{ text }}</label>
 <label class="form-label" *ngFor="let number of log"
 [ngStyle]="{backgroundColor: number>=5?'yellow':'pink'}"
-[ngClass]="{'azul':number===5}">{{ number }}</label>
-<button class="btn btn-primary" [disabled]="text===''" (click)="logmasuno()">X</button>
-<input type="text" class="form-control" [(ngModel)]="text" (input)="targetvalue($event)" (click)="Xclick()"/> -->
+[ngClass]="{'azul':number===5}">{{ number }}</label> -->
+<app-lista-compra-button 
+(productoAdded)="onProductAdded($event)" class="ion-text-center"></app-lista-compra-button>
