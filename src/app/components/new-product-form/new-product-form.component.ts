@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Producto } from 'src/app/lista-compra/producto.model';
 import { ListaCompraService } from 'src/app/lista-compra/lista-compra.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-product-form',
@@ -20,7 +21,7 @@ export class NewProductFormComponent implements OnInit {
   producto: Producto[];
   @Output() productoAdded = new EventEmitter<Producto>()
 
-  constructor(private productoService: ListaCompraService) { }
+  constructor(private productoService: ListaCompraService,private router: Router,) { }
 
   ngOnInit() {
     this.producto = this.productoService.getAllProducts();
@@ -28,13 +29,13 @@ export class NewProductFormComponent implements OnInit {
       .subscribe(
         (producto: Producto[]) => {
           this.producto = producto;
-          this.productos.id = producto.length + 1;
         }
       )
   }
 
   onAddProduct() {
 
+    this.productos.id = this.producto.length + 1
     if (this.productos.name && this.productos.foto) {
       let newProducto = {
         id: this.productos.id.toString(),
@@ -46,6 +47,7 @@ export class NewProductFormComponent implements OnInit {
       }
       this.productoAdded.emit(newProducto)
       console.log(newProducto.id)
+      this.router.navigate(["/tabs/tab1"]);
     }
   }
 

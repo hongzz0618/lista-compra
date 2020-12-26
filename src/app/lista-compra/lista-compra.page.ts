@@ -48,7 +48,4 @@ export class ListaCompraPage implements OnInit {
     this.text = (<HTMLInputElement>event.target).value
   }
 
-  onProductAdded(product: Producto) {
-    this.producto.push(product)
-  }
 }

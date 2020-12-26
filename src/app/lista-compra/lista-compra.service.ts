@@ -5,7 +5,7 @@ import { Producto } from './producto.model';
   providedIn: 'root'
 })
 export class ListaCompraService {
-  productsChanged = new EventEmitter <Producto[]>();
+  productsChanged = new EventEmitter<Producto[]>();
   private producto: Producto[] = [
     {
       id: "1",
@@ -82,6 +82,11 @@ export class ListaCompraService {
     this.producto = this.producto.filter(item => {
       return item.id !== productId;
     });
+    this.productsChanged.emit(this.producto.slice())
+  }
+
+  addProduct(product) {
+    this.producto.push(product)
     this.productsChanged.emit(this.producto.slice())
   }
 }

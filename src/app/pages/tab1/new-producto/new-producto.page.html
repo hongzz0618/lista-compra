@@ -1,15 +1,14 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button
-        defaultHref="/tabs/tab1"
-        color="dark"
-      ></ion-back-button>
+      <ion-back-button defaultHref="/tabs/tab1" color="dark"></ion-back-button>
     </ion-buttons>
     <ion-title>new-producto</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-text-center ion-margin-vertical">
-  <app-new-product-form></app-new-product-form>
+  <app-new-product-form
+    (productoAdded)="onProductAdded($event)"
+  ></app-new-product-form>
 </ion-content>
