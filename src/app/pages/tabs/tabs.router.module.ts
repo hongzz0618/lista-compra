@@ -15,6 +15,10 @@ const routes: Routes = [
             loadChildren: '../tab1/tab1.module#Tab1PageModule'
           },
           {
+            path: 'new-producto',
+            loadChildren: () => import('../tab1/new-producto/new-producto.module').then( m => m.NewProductoPageModule)
+          },
+          {
             path: ":productId",
             loadChildren: () => import('../../lista-compra/product-detail/product-detail.module').then(m => m.ProductDetailPageModule)
           }
@@ -49,4 +53,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule]
 })
-export class TabsPageRoutingModule {}
+export class TabsPageRoutingModule { }

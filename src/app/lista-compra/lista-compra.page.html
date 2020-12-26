@@ -1,13 +1,23 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>{{ page_name }}</ion-title>
+    <ion-button size="small" [routerLink]="['./new-producto']" class="ion-padding-horizontal" slot="end">
+      <ion-icon slot="icon-only" name="add-outline"></ion-icon>
+    </ion-button>
+    <!-- <app-lista-compra-button 
+      (productoAdded)="onProductAdded($event)"
+        ></app-lista-compra-button> -->
   </ion-toolbar>
 </ion-header>
 <!-- <ion-searchbar showCancelButton="focus" ></ion-searchbar> -->
 <ion-content>
   <ion-list>
-    <app-lista-compra-items *ngFor="let item of producto" [routerLink]="['./',item.id]"
-    [producto]="item"></app-lista-compra-items>
+    <app-lista-compra-items
+      style="cursor: pointer"
+      *ngFor="let item of producto"
+      [routerLink]="['./',item.id]"
+      [producto]="item"
+    ></app-lista-compra-items>
   </ion-list>
 </ion-content>
 <!-- <label class="form-label" [innerText]="Xcli" *ngIf="button;else noif"></label>
@@ -18,6 +28,3 @@
 <label class="form-label" *ngFor="let number of log"
 [ngStyle]="{backgroundColor: number>=5?'yellow':'pink'}"
 [ngClass]="{'azul':number===5}">{{ number }}</label> -->
-
-<!-- <app-lista-compra-button 
-(productoAdded)="onProductAdded($event)" class="ion-text-center"></app-lista-compra-button> -->
