@@ -3,14 +3,26 @@
 <button class="btn btn-primary" (click)="onAddProduct()">
   añadir producto
 </button> -->
-<ion-item>
+<ion-item mode="md">
   <ion-label position="floating">nombre</ion-label>
-  <ion-input [(ngModel)]="name"></ion-input>
+  <ion-input [(ngModel)]="productos.name"></ion-input>
 </ion-item>
-<ion-item>
+<ion-item mode="md">
+  <ion-label position="floating">marca</ion-label>
+  <ion-input [(ngModel)]="productos.marca"></ion-input>
+</ion-item>
+<ion-item mode="md">
+  <ion-label position="floating">cantidad_neta</ion-label>
+  <ion-input [(ngModel)]="productos.cantidad"></ion-input>
+</ion-item>
+<ion-item mode="md">
+  <ion-label position="floating">Ingredientes</ion-label>
+  <ion-input [(ngModel)]="productos.Ingredientes"></ion-input>
+</ion-item>
+<ion-item mode="md">
   <ion-label position="floating">foto</ion-label>
-  <ion-input [(ngModel)]="foto"></ion-input>
+  <ion-input [(ngModel)]="productos.foto"></ion-input>
 </ion-item>
-<ion-button (click)="onAddProduct()">
+<ion-button (click)="onAddProduct()" class="ion-padding-vertical">
   <ion-icon slot="icon-only" name="add-outline"></ion-icon>
 </ion-button>
