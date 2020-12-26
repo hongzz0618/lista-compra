@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
 import { Producto } from '../producto.model';
+import { ListaCompraService } from '../lista-compra.service';
 
 @Component({
   selector: 'app-lista-compra-button',
@@ -12,19 +13,31 @@ export class ListaCompraButtonComponent implements OnInit {
   // @ViewChild("fotoproduct") fotoInputRef: ElementRef
   name = ""
   foto = ""
+  producto: Producto[];
   @Output() productoAdded = new EventEmitter<Producto>()
 
-  constructor() { }
+  constructor(private productoService: ListaCompraService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.producto = this.productoService.getAllProducts();
+    this.productoService.productsChanged
+      .subscribe(
+        (producto: Producto[]) => {
+          this.producto = producto;
+        }
+      )
+  }
 
   onAddProduct() {
 
     // let pname = this.name
     // let pfoto = this.fotoInputRef.nativeElement.value
+
     if (this.name && this.foto) {
+      let ids = this.producto.length + 1
+
       let newProducto = {
-        id: "9",
+        id: ids.toString(),
         nombre: this.name,
         // nombre: this.productname,
         marca: "Hacendado",
@@ -35,6 +48,7 @@ export class ListaCompraButtonComponent implements OnInit {
         foto2: "https://i0.wp.com/martalopeznutricionista.com/wp-content/uploads/2020/03/Sin-t%C3%ADtulod.png?w=479&ssl=1"
       }
       this.productoAdded.emit(newProducto)
+      console.log(newProducto.id)
     }
   }
 }

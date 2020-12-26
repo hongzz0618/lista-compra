@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // export ANDROID_HOME=/home/hong/Android/Sdk
+  // export ANDROID_SDK_ROOT=/home/hong/Android/Sdk
 };
 
 /*

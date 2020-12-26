@@ -29,6 +29,12 @@ export class ListaCompraPage implements OnInit {
     //   this.button=false
     // },2000)
     this.producto = this.productoService.getAllProducts();
+    this.productoService.productsChanged
+      .subscribe(
+        (producto: Producto[]) => {
+          this.producto = producto;
+        }
+      )
   }
   logmasuno() {
     this.log.push(this.log.length + 1)
@@ -42,7 +48,7 @@ export class ListaCompraPage implements OnInit {
     this.text = (<HTMLInputElement>event.target).value
   }
 
-  onProductAdded(product:Producto) {
+  onProductAdded(product: Producto) {
     this.producto.push(product)
   }
 }
