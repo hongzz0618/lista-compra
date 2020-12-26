@@ -21,7 +21,7 @@ export class ProductDetailPage implements OnInit {
   ngOnInit() {
     this.activatedRoute.paramMap.subscribe(paramMap => {
       if (!paramMap.has("productId")) {
-        this.router.navigate(["/lista-compra"]);
+        this.router.navigate(["/tabs/tab1"]);
         return;
       }
       const productId = paramMap.get("productId");
@@ -43,7 +43,7 @@ export class ProductDetailPage implements OnInit {
           text: "Borrar",
           handler: () => {
             this.productoService.deleteProduct(this.productoD.id)
-            this.router.navigate(["/lista-compra"]);
+            this.router.navigate(["/tabs/tab1"]);
           }
         }]
     }).then(el => {

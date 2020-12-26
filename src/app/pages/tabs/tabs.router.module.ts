@@ -13,6 +13,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../tab1/tab1.module#Tab1PageModule'
+          },
+          {
+            path: ":productId",
+            loadChildren: () => import('../../lista-compra/product-detail/product-detail.module').then(m => m.ProductDetailPageModule)
           }
         ]
       },

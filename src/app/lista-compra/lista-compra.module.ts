@@ -18,6 +18,9 @@ import { ListaCompraButtonComponent } from './lista-compra-button/lista-compra-b
     IonicModule,
     ListaCompraPageRoutingModule
   ],
-  declarations: [ListaCompraPage,ListaCompraItemsComponent,ListaCompraButtonComponent]
+  declarations: [ListaCompraPage,ListaCompraItemsComponent,ListaCompraButtonComponent],
+  exports: [
+    ListaCompraPage
+  ],
 })
 export class ListaCompraPageModule {}
