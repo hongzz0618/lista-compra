@@ -1,16 +1,13 @@
-import { Component, OnInit, ViewChild, ElementRef, EventEmitter, Output } from '@angular/core';
-import { Producto } from '../producto.model';
-import { ListaCompraService } from '../lista-compra.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Producto } from 'src/app/lista-compra/producto.model';
+import { ListaCompraService } from 'src/app/lista-compra/lista-compra.service';
 
 @Component({
-  selector: 'app-lista-compra-button',
-  templateUrl: './lista-compra-button.component.html',
-  styleUrls: ['./lista-compra-button.component.scss'],
+  selector: 'app-new-product-form',
+  templateUrl: './new-product-form.component.html',
+  styleUrls: ['./new-product-form.component.scss'],
 })
-export class ListaCompraButtonComponent implements OnInit {
-
-  // @ViewChild("nameproduct") nameInputRef: ElementRef
-  // @ViewChild("fotoproduct") fotoInputRef: ElementRef
+export class NewProductFormComponent implements OnInit {
   name = ""
   foto = ""
   producto: Producto[];
@@ -51,4 +48,5 @@ export class ListaCompraButtonComponent implements OnInit {
       console.log(newProducto.id)
     }
   }
+
 }
