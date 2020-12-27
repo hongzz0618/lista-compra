@@ -9,12 +9,12 @@
 <!-- <ion-searchbar showCancelButton="focus" ></ion-searchbar> -->
 <ion-content>
   <ion-list>
-    <app-lista-compra-items
+    <app-product-list-items
       style="cursor: pointer"
       *ngFor="let item of producto"
       [routerLink]="['./',item.id]"
       [producto]="item"
-    ></app-lista-compra-items>
+    ></app-product-list-items>
   </ion-list>
 </ion-content>
 <!-- <label class="form-label" [innerText]="Xcli" *ngIf="button;else noif"></label>

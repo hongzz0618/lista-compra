@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ListaCompraPageRoutingModule } from './lista-compra-routing.module';
 
 import { ListaCompraPage } from './lista-compra.page';
-import { ListaCompraItemsComponent } from './lista-compra-items/lista-compra-items.component';
+import { ComponentsModule } from '../components/components.module';
 
 
 @NgModule({
@@ -15,9 +15,10 @@ import { ListaCompraItemsComponent } from './lista-compra-items/lista-compra-ite
     CommonModule,
     FormsModule,
     IonicModule,
-    ListaCompraPageRoutingModule
+    ListaCompraPageRoutingModule,
+    ComponentsModule
   ],
-  declarations: [ListaCompraPage,ListaCompraItemsComponent],
+  declarations: [ListaCompraPage],
   exports: [
     ListaCompraPage
   ],

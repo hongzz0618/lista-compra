@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ListaCompraItemsComponent } from './lista-compra-items.component';
+import { ProductListItemsComponent } from './product-list-items.component';
 
-describe('ListaCompraItemsComponent', () => {
-  let component: ListaCompraItemsComponent;
-  let fixture: ComponentFixture<ListaCompraItemsComponent>;
+describe('ProductListItemsComponent', () => {
+  let component: ProductListItemsComponent;
+  let fixture: ComponentFixture<ProductListItemsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListaCompraItemsComponent ],
+      declarations: [ ProductListItemsComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ListaCompraItemsComponent);
+    fixture = TestBed.createComponent(ProductListItemsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
