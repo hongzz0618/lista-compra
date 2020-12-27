@@ -5,6 +5,7 @@ import { ListaCompraService } from '../lista-compra.service';
 import { Producto } from '../producto.model';
 import { ActionSheetController } from '@ionic/angular';
 import { DataLocalService } from 'src/app/services/data-local.service';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 @Component({
   selector: 'app-product-detail',
@@ -19,7 +20,8 @@ export class ProductDetailPage implements OnInit {
     private router: Router,
     private alert: AlertController,
     private actionSheetCtrl: ActionSheetController,
-    private datalocalService: DataLocalService
+    private datalocalService: DataLocalService,
+    private socialSharing: SocialSharing
   ) { }
 
   ngOnInit() {
@@ -86,6 +88,20 @@ export class ProductDetailPage implements OnInit {
 
     const actionSheet = await this.actionSheetCtrl.create({
       buttons: [
+        {
+          text: 'Compartir',
+          icon: 'share',
+          cssClass: 'action-dark',
+          handler: () => {
+            console.log('Share clicked');
+            this.socialSharing.share(
+              this.productoD.nombre,
+              this.productoD.marca,
+              this.productoD.Ingredientes,
+              this.productoD.foto
+            );
+        }
+      },
         guardarBorrarBtn,
         {
           text: 'Cancelar',
