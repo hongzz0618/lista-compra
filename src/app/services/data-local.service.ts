@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { ToastController } from '@ionic/angular';
-import { Producto } from '../lista-compra/producto.model';
+import { Producto } from '../interfaces/producto.model';
 
 
 @Injectable({
