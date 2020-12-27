@@ -1,5 +1,6 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { IonSegment } from '@ionic/angular';
+import { DataLocalService } from 'src/app/services/data-local.service';
 
 @Component({
   selector: 'app-tab2',
@@ -9,7 +10,13 @@ import { IonSegment } from '@ionic/angular';
 export class Tab2Page implements OnInit {
 
 
-  constructor() {
+  sliderOpts = {
+    allowSlidePrev: false,
+    allowSlideNext: false
+  };
+
+
+  constructor( public datalocalService: DataLocalService ) {
 
   }
 

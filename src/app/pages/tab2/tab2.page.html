@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title> Favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides
+    [options]="sliderOpts"
+    *ngIf="datalocalService.productos.length === 0"
+  >
+    <ion-slide>
+      <ion-label>No hay favoritos</ion-label>
+    </ion-slide>
+  </ion-slides>
+
+  <app-product-list-items
+    *ngIf="datalocalService.productos.length > 0"
+    style="cursor: pointer"
+    [enFavoritos]="true"
+    [producto]="datalocalService.productos"
+  ></app-product-list-items>
+</ion-content>

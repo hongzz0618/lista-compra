@@ -1,4 +1,4 @@
-<ion-item >
+<ion-item *ngFor="let item of item" (click)="redirectItem(item.id)">
   <ion-avatar slot="start">
     <ion-img [src]="item.foto"> </ion-img>
   </ion-avatar>

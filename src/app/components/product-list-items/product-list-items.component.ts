@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list-items',
@@ -6,9 +7,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./product-list-items.component.scss'],
 })
 export class ProductListItemsComponent implements OnInit {
-  @Input("producto") item:any;
-  constructor() { }
+  @Input("producto") item: any;
+  @Input() enFavoritos = false;
+  constructor(private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
+
+  redirectItem(id) {
+    this.router.navigate(["/tabs/tab1/" + id + "",
+    { enFavoritos: this.enFavoritos }]);
+  }
 
 }

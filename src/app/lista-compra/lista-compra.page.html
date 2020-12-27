@@ -1,7 +1,12 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>{{ page_name }}</ion-title>
-    <ion-button size="small" [routerLink]="['./new-producto']" class="ion-padding-horizontal" slot="end">
+    <ion-button
+      size="small"
+      [routerLink]="['./new-producto']"
+      class="ion-padding-horizontal"
+      slot="end"
+    >
       <ion-icon slot="icon-only" name="add-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
@@ -11,9 +16,8 @@
   <ion-list>
     <app-product-list-items
       style="cursor: pointer"
-      *ngFor="let item of producto"
-      [routerLink]="['./',item.id]"
-      [producto]="item"
+      [producto]="producto"
+      [enFavoritos]="false"
     ></app-product-list-items>
   </ion-list>
 </ion-content>

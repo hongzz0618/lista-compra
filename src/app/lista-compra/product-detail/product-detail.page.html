@@ -1,10 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-buttons slot="start">
-      <ion-back-button
-        defaultHref="/tabs/tab1"
-        color="dark"
-      ></ion-back-button>
+      <ion-back-button defaultHref="/tabs/tab1" color="dark"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ productoD.nombre }}</ion-title>
     <ion-buttons slot="primary">
@@ -16,7 +13,12 @@
 </ion-header>
 
 <ion-card class="ion-text-center">
-  <ion-img *ngIf="productoD.foto" [src]="productoD.foto"></ion-img>
+  <div class="producto-more">
+    <ion-button fill="clear" (click)="lanzarMenu()" size="large">
+      <ion-icon name="ellipsis-horizontal"></ion-icon>
+    </ion-button>
+  </div>
+  <ion-img *ngIf="productoD.foto" [src]="productoD.foto" class="ion-margin"></ion-img>
   <ion-card-content>
     <ion-card-subtitle>
       <span>{{ productoD.cantidad_neta }}</span>

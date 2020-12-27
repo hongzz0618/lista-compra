@@ -1,8 +1,10 @@
 import { AlertController } from '@ionic/angular';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListaCompraService } from '../lista-compra.service';
 import { Producto } from '../producto.model';
+import { ActionSheetController } from '@ionic/angular';
+import { DataLocalService } from 'src/app/services/data-local.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -15,7 +17,9 @@ export class ProductDetailPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     private productoService: ListaCompraService,
     private router: Router,
-    private alert: AlertController
+    private alert: AlertController,
+    private actionSheetCtrl: ActionSheetController,
+    private datalocalService: DataLocalService
   ) { }
 
   ngOnInit() {
@@ -49,5 +53,52 @@ export class ProductDetailPage implements OnInit {
     }).then(el => {
       el.present();
     })
+  }
+  async lanzarMenu() {
+
+    let guardarBorrarBtn;
+    if (JSON.parse(this.activatedRoute.snapshot.params.enFavoritos)) {
+
+      guardarBorrarBtn = {
+        text: 'Borrar Favorito',
+        icon: 'trash',
+        cssClass: 'action-dark',
+        handler: () => {
+          console.log('Borrar de favorito');
+          this.datalocalService.borrarProductFavorito(this.productoD);
+          this.router.navigate(["/tabs/tab2"]);
+        }
+      };
+
+    } else {
+
+      guardarBorrarBtn = {
+        text: 'Favorito',
+        icon: 'star',
+        cssClass: 'action-dark',
+        handler: () => {
+          console.log('Favorito');
+          this.datalocalService.guardarFavorito(this.productoD);
+        }
+      };
+
+    }
+
+    const actionSheet = await this.actionSheetCtrl.create({
+      buttons: [
+        guardarBorrarBtn,
+        {
+          text: 'Cancelar',
+          icon: 'close',
+          role: 'cancel',
+          cssClass: 'action-dark',
+          handler: () => {
+            console.log('Cancel clicked');
+          }
+        }]
+    });
+
+    await actionSheet.present();
+
   }
 }
