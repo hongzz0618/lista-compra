@@ -14,8 +14,16 @@ export class ProductListItemsComponent implements OnInit {
   ngOnInit() { }
 
   redirectItem(id) {
-    this.router.navigate(["/tabs/tab1/" + id + "",
-    { enFavoritos: this.enFavoritos }]);
+    let tab1 = "/tabs/tab1/" + id
+    let tab2 = "/tabs/tab2/" + id
+    if (this.enFavoritos) {
+      this.router.navigate([tab2,
+        { enFavoritos: this.enFavoritos }]);
+    } else {
+      this.router.navigate([tab1,
+        { enFavoritos: this.enFavoritos }]);
+    }
+
   }
 
 }

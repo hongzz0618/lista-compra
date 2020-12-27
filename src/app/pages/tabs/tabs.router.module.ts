@@ -16,7 +16,7 @@ const routes: Routes = [
           },
           {
             path: 'new-producto',
-            loadChildren: () => import('../tab1/new-producto/new-producto.module').then( m => m.NewProductoPageModule)
+            loadChildren: () => import('../tab1/new-producto/new-producto.module').then(m => m.NewProductoPageModule)
           },
           {
             path: ":productId",
@@ -30,6 +30,10 @@ const routes: Routes = [
           {
             path: '',
             loadChildren: '../tab2/tab2.module#Tab2PageModule'
+          },
+          {
+            path: ":productId",
+            loadChildren: () => import('../../components/product-detail/product-detail.module').then(m => m.ProductDetailPageModule)
           }
         ]
       },
