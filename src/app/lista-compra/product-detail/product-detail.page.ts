@@ -14,6 +14,7 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 })
 export class ProductDetailPage implements OnInit {
   productoD: Producto;
+  tabStatus = false
   constructor(
     private activatedRoute: ActivatedRoute,
     private productoService: ListaCompraService,
@@ -25,6 +26,7 @@ export class ProductDetailPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.tabStatus = JSON.parse(this.activatedRoute.snapshot.params.enFavoritos);
     this.activatedRoute.paramMap.subscribe(paramMap => {
       if (!paramMap.has("productId")) {
         this.router.navigate(["/tabs/tab1"]);
@@ -59,7 +61,7 @@ export class ProductDetailPage implements OnInit {
   async lanzarMenu() {
 
     let guardarBorrarBtn;
-    if (JSON.parse(this.activatedRoute.snapshot.params.enFavoritos)) {
+    if (this.tabStatus) {
 
       guardarBorrarBtn = {
         text: 'Borrar Favorito',
@@ -100,8 +102,8 @@ export class ProductDetailPage implements OnInit {
               this.productoD.Ingredientes,
               this.productoD.foto
             );
-        }
-      },
+          }
+        },
         guardarBorrarBtn,
         {
           text: 'Cancelar',
