@@ -1,7 +1,7 @@
-import { AlertController } from '@ionic/angular';
+import { AlertController, Platform } from '@ionic/angular';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ListaCompraService } from '../lista-compra.service';
+import { ListaCompraService } from '../../services/lista-compra.service';
 import { Producto } from '../producto.model';
 import { ActionSheetController } from '@ionic/angular';
 import { DataLocalService } from 'src/app/services/data-local.service';
@@ -22,7 +22,8 @@ export class ProductDetailPage implements OnInit {
     private alert: AlertController,
     private actionSheetCtrl: ActionSheetController,
     private datalocalService: DataLocalService,
-    private socialSharing: SocialSharing
+    private socialSharing: SocialSharing,
+    private platform: Platform
   ) { }
 
   ngOnInit() {
@@ -96,12 +97,7 @@ export class ProductDetailPage implements OnInit {
           cssClass: 'action-dark',
           handler: () => {
             console.log('Share clicked');
-            this.socialSharing.share(
-              this.productoD.nombre,
-              this.productoD.marca,
-              this.productoD.Ingredientes,
-              this.productoD.foto
-            );
+            this.compartirNoticia();
           }
         },
         guardarBorrarBtn,
@@ -117,6 +113,38 @@ export class ProductDetailPage implements OnInit {
     });
 
     await actionSheet.present();
+
+  }
+
+  compartirNoticia() {
+
+
+    if (this.platform.is('cordova')) {
+      this.socialSharing.share(
+        this.productoD.nombre,
+        this.productoD.Ingredientes,
+        '',
+        this.productoD.foto
+      );
+    } else {
+
+      if (navigator['share']) {
+
+        navigator['share']({
+          title: this.productoD.nombre,
+          text: this.productoD.Ingredientes,
+          url: this.productoD.foto,
+        })
+          .then(() => console.log('Successful share'))
+          .catch((error) => console.log('Error sharing', error));
+      } else {
+        console.log('No se pudo compartir porque no se soporta');
+      }
+
+    }
+
+
+
 
   }
 }

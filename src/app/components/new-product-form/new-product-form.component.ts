@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Producto } from 'src/app/lista-compra/producto.model';
-import { ListaCompraService } from 'src/app/lista-compra/lista-compra.service';
+import { ListaCompraService } from 'src/app/services/lista-compra.service';
 import { Router } from '@angular/router';
 
 @Component({
