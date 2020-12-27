@@ -20,7 +20,7 @@ const routes: Routes = [
           },
           {
             path: ":productId",
-            loadChildren: () => import('../../lista-compra/product-detail/product-detail.module').then(m => m.ProductDetailPageModule)
+            loadChildren: () => import('../../components/product-detail/product-detail.module').then(m => m.ProductDetailPageModule)
           }
         ]
       },

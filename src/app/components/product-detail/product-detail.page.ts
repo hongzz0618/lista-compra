@@ -2,7 +2,7 @@ import { AlertController, Platform } from '@ionic/angular';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListaCompraService } from '../../services/lista-compra.service';
-import { Producto } from '../producto.model';
+import { Producto } from '../../lista-compra/producto.model';
 import { ActionSheetController } from '@ionic/angular';
 import { DataLocalService } from 'src/app/services/data-local.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
