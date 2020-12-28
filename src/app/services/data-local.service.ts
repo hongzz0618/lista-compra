@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { ToastController } from '@ionic/angular';
 import { Producto } from '../interfaces/producto.model';
@@ -10,6 +10,8 @@ import { Producto } from '../interfaces/producto.model';
 export class DataLocalService {
 
   productos: Producto[] = [];
+  favoritoChanged = new EventEmitter<Producto[]>();
+
 
   constructor(private storage: Storage,
     public toastController: ToastController) {
@@ -34,7 +36,7 @@ export class DataLocalService {
       this.productos.unshift(product);
       this.storage.set('favoritos', this.productos);
       this.presentToast('Agregado a favorito');
-    }else{
+    } else {
       this.presentToast('ya fue añadido');
     }
   }
@@ -42,9 +44,9 @@ export class DataLocalService {
   async cargarFavoritos() {
 
     const favoritos = await this.storage.get('favoritos');
-
     if (favoritos) {
       this.productos = favoritos;
+      this.favoritoChanged.emit(this.productos.slice())
     }
   }
 

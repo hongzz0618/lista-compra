@@ -1,5 +1,8 @@
 import { Injectable, EventEmitter } from '@angular/core';
+import { Storage } from '@ionic/storage';
+
 import { Producto } from '../interfaces/producto.model';
+import { ToastController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -64,7 +67,29 @@ export class ListaCompraService {
       foto: "https://dondeyocompro.com/wp-content/uploads/2017/08/IMG_3064.jpg"
     }
   ]
-  constructor() { }
+  private enFavoritos: any
+
+  constructor(private storage: Storage, public toastController: ToastController) {
+    this.cargarDatosLocal();
+  }
+
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message,
+      duration: 1500
+    });
+    toast.present();
+  }
+
+  async cargarDatosLocal() {
+
+    const localProduct: Producto[] = await this.storage.get('productos');
+
+    if (localProduct) {
+      this.producto = localProduct
+      this.productsChanged.emit(this.producto.slice())
+    }
+  }
 
   getAllProducts() {
     return this.producto.slice();
@@ -78,15 +103,26 @@ export class ListaCompraService {
     };
   }
 
-  deleteProduct(productId: string) {
-    this.producto = this.producto.filter(item => {
-      return item.id !== productId;
-    });
+  async deleteProduct(productId: string) {
+    //borrar en favoritos
+    this.enFavoritos = await this.storage.get('favoritos')
+    this.enFavoritos = this.enFavoritos.filter(p => p.id !== productId);
+    this.storage.set('favoritos', this.enFavoritos);
+    //borrar en compras
+    this.producto = this.producto.filter(p => p.id !== productId);
     this.productsChanged.emit(this.producto.slice())
+    this.storage.set('productos', this.producto);
+    this.presentToast('Producto Borrado');
   }
 
-  addProduct(product) {
-    this.producto.push(product)
-    this.productsChanged.emit(this.producto.slice())
+
+  addProduct(product: Producto) {
+    const existe = this.producto.find(p => p.id === product.id);
+    if (!existe) {
+      this.producto.push(product);
+      this.productsChanged.emit(this.producto.slice())
+      this.storage.set('productos', this.producto);
+      this.presentToast('un Producto Agregado');
+    }
   }
 }

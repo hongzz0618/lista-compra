@@ -46,7 +46,6 @@ export class NewProductFormComponent implements OnInit {
         foto: this.productos.foto,
       }
       this.productoAdded.emit(newProducto)
-      console.log(newProducto.id)
       this.router.navigate(["/tabs/tab1"]);
     }
   }
