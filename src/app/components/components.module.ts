@@ -5,22 +5,27 @@ import { NewProductFormComponent } from './new-product-form/new-product-form.com
 import { FormsModule } from '@angular/forms';
 import { ProductListItemsComponent } from './product-list-items/product-list-items.component';
 import { TopSliderComponent } from './top-slider/top-slider.component';
+import { DoubleSlidesComponent } from './double-slides/double-slides.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 @NgModule({
   declarations: [
     NewProductFormComponent,
     ProductListItemsComponent,
-    TopSliderComponent
+    TopSliderComponent,
+    DoubleSlidesComponent
   ],
   exports: [
     NewProductFormComponent,
     ProductListItemsComponent,
-    TopSliderComponent
+    TopSliderComponent,
+    DoubleSlidesComponent
   ],
   imports: [
     CommonModule,
     IonicModule,
-    FormsModule
+    FormsModule,
+    PipesModule
   ]
 })
 export class ComponentsModule { }
