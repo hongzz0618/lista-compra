@@ -12,9 +12,6 @@ export class NewProductFormComponent implements OnInit {
   productos = {
     "id": 0,
     "name": "",
-    "marca": "",
-    "cantidad": "",
-    "Ingredientes": "",
     "foto": ""
   }
 
@@ -40,9 +37,6 @@ export class NewProductFormComponent implements OnInit {
       let newProducto = {
         id: this.productos.id.toString(),
         nombre: this.productos.name,
-        marca: this.productos.marca,
-        cantidad_neta: this.productos.cantidad,
-        Ingredientes: this.productos.Ingredientes,
         foto: this.productos.foto,
       }
       this.productoAdded.emit(newProducto)

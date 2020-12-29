@@ -122,7 +122,7 @@ export class ProductDetailPage implements OnInit {
     if (this.platform.is('cordova')) {
       this.socialSharing.share(
         this.productoD.nombre,
-        this.productoD.Ingredientes,
+        '',
         '',
         this.productoD.foto
       );
@@ -132,7 +132,7 @@ export class ProductDetailPage implements OnInit {
 
         navigator['share']({
           title: this.productoD.nombre,
-          text: this.productoD.Ingredientes,
+          text: '',
           url: this.productoD.foto,
         })
           .then(() => console.log('Successful share'))
