@@ -1,0 +1,7 @@
+procesos para convertir en una pwa y subirlo en un hosting de firebase
+
+añadir modulo de pwa (si no pone esa version nova)
+ng add @angular/pwa@0.68
+
+empaquetar y optimizar, arrancar anter del deploy
+ionic build --prod --service-worker
