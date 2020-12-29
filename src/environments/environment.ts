@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+  imgPath : "/assets/productImages/"
+
   // export ANDROID_HOME=/home/hong/Android/Sdk
   // export ANDROID_SDK_ROOT=/home/hong/Android/Sdk
 };
