@@ -7,11 +7,27 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <ion-list>
+  <!-- <ion-list>
     <app-product-list-items
       style="cursor: pointer"
       [producto]="producto"
       [enFavoritos]="false"
     ></app-product-list-items>
-  </ion-list>
+  </ion-list> -->
+  
+  <app-top-slider [productos]="producto" [slideperview]=1.3 [sizeXs]=false> </app-top-slider>
+
+  <app-top-slider [productos]="producto" [slideperview]=2.3 [sizeXs]=true> </app-top-slider>
+
+  <app-top-slider [productos]="producto" [slideperview]=3.3 [sizeXs]=true> </app-top-slider>
+
+  <app-top-slider [productos]="producto" [slideperview]=4.3 [sizeXs]=true> </app-top-slider>
+
+  <app-top-slider [productos]="producto" [slideperview]=5.3 [sizeXs]=true> </app-top-slider>
+
+  <app-top-slider [productos]="producto" [slideperview]=6.3 [sizeXs]=true> </app-top-slider>
+
+  <app-top-slider [productos]="producto" [slideperview]=7.3 [sizeXs]=true> </app-top-slider>
+
+
 </ion-content>

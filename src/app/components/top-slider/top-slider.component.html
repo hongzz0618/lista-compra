@@ -1,0 +1,7 @@
+<ion-slides [options]="slideOpts">
+  <ion-slide *ngFor="let prod of productos">
+    <ion-card>
+      <img [ngClass]="{'sliderXs':sizeXs}" *ngIf="prod.foto" [src]="prod.foto" />
+    </ion-card>
+  </ion-slide>
+</ion-slides>

@@ -4,15 +4,18 @@ import { IonicModule } from '@ionic/angular';
 import { NewProductFormComponent } from './new-product-form/new-product-form.component';
 import { FormsModule } from '@angular/forms';
 import { ProductListItemsComponent } from './product-list-items/product-list-items.component';
+import { TopSliderComponent } from './top-slider/top-slider.component';
 
 @NgModule({
   declarations: [
     NewProductFormComponent,
-    ProductListItemsComponent
+    ProductListItemsComponent,
+    TopSliderComponent
   ],
   exports: [
     NewProductFormComponent,
-    ProductListItemsComponent
+    ProductListItemsComponent,
+    TopSliderComponent
   ],
   imports: [
     CommonModule,

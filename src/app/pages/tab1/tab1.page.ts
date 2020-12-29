@@ -9,7 +9,7 @@ import { Producto } from 'src/app/interfaces/producto.model';
 })
 export class Tab1Page implements OnInit {
 
-  page_name = "Lista de Compra"
+  page_name = "Home"
   producto: Producto[];
 
   constructor(private productoService: ListaCompraService) {}
