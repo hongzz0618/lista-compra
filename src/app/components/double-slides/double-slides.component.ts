@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Producto } from 'src/app/interfaces/producto.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-double-slides',
@@ -18,11 +19,13 @@ export class DoubleSlidesComponent implements OnInit {
     // centeredSlides:true
   };
 
-  constructor(
-  ) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.slideOpts.slidesPerView=this.slideperview
   }
 
+  redirectItem(id) {
+    this.router.navigate(["/tabs/tab1/" + id]);
+  }
 }

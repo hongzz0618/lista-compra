@@ -84,10 +84,10 @@ export class ListaCompraService {
   }
 
   async deleteProduct(productId: string) {
-    //borrar en favoritos
-    this.enFavoritos = await this.storage.get('favoritos')
-    this.enFavoritos = this.enFavoritos.filter(p => p.id !== productId);
-    this.storage.set('favoritos', this.enFavoritos);
+    // //borrar en favoritos
+    // this.enFavoritos = await this.storage.get('favoritos')
+    // this.enFavoritos = this.enFavoritos.filter(p => p.id !== productId);
+    // this.storage.set('favoritos', this.enFavoritos);
     //borrar en compras
     this.producto = this.producto.filter(p => p.id !== productId);
     this.productsChanged.emit(this.producto.slice())

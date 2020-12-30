@@ -15,7 +15,6 @@ export class DoubleSlidePipe implements PipeTransform {
       return result;
     }, []);
 
-    console.log(doubleSlide)
     return doubleSlide;
  }
 

@@ -27,7 +27,6 @@ export class ProductDetailPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.tabStatus = JSON.parse(this.activatedRoute.snapshot.params.enFavoritos);
     this.activatedRoute.paramMap.subscribe(paramMap => {
       if (!paramMap.has("productId")) {
         this.router.navigate(["/tabs/tab1"]);
@@ -62,7 +61,7 @@ export class ProductDetailPage implements OnInit {
   async lanzarMenu() {
 
     let guardarBorrarBtn;
-    if (this.tabStatus) {
+    if (JSON.parse(this.activatedRoute.snapshot.params.enFavoritos)) {
 
       guardarBorrarBtn = {
         text: 'Borrar Favorito',

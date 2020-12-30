@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Producto } from 'src/app/interfaces/producto.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-slider',
@@ -7,9 +7,11 @@ import { Producto } from 'src/app/interfaces/producto.model';
   styleUrls: ['./top-slider.component.scss'],
 })
 export class TopSliderComponent implements OnInit {
-  @Input() productos: Producto[] = [];
+  @Input() productos: any;
   @Input() slideperview: any;
   @Input() sizeXs: any;
+  @Input() enFavoritos = false;
+
 
   slideOpts = {
     slidesPerView: 1,
@@ -17,11 +19,14 @@ export class TopSliderComponent implements OnInit {
     // centeredSlides:true
   };
 
-  constructor(
-  ) { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
-    this.slideOpts.slidesPerView=this.slideperview
+    this.slideOpts.slidesPerView = this.slideperview
+  }
+
+  redirectItem(id) {
+    this.router.navigate(["/tabs/tab1/" + id]);
   }
 
 }
