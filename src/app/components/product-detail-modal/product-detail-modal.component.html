@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tabs/tab1" color="dark"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ productoD.nombre }}</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onDeleteProduct()" [ngClass]="{'esconder': tabStatus}">
+        <ion-icon name="trash" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-card class="ion-text-center">
+  <div class="producto-more">
+    <ion-button fill="clear" (click)="lanzarMenu(productoD.id)" size="large">
+      <ion-icon name="ellipsis-horizontal"></ion-icon>
+    </ion-button>
+  </div>
+  <ion-img *ngIf="productoD.foto" [src]="productoD.foto" class="ion-margin"></ion-img>
+</ion-card>

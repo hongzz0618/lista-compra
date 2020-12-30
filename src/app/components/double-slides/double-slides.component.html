@@ -1,7 +1,7 @@
 <ion-slides [options]="slideOpts">
   <ion-slide *ngFor="let double of productos | doubleSlide" >
     <ion-row>
-      <ion-col size="12" *ngFor="let prod of double" (click)="redirectItem(prod.id)">
+      <ion-col size="12" *ngFor="let prod of double" (click)="detailModal(prod.id)">
         <ion-card>
           <img *ngIf="prod.foto" [src]="prod.foto" />
         </ion-card>

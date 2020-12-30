@@ -7,19 +7,25 @@ import { ProductListItemsComponent } from './product-list-items/product-list-ite
 import { TopSliderComponent } from './top-slider/top-slider.component';
 import { DoubleSlidesComponent } from './double-slides/double-slides.component';
 import { PipesModule } from '../pipes/pipes.module';
+import { ProductDetailModalComponent } from './product-detail-modal/product-detail-modal.component';
 
 @NgModule({
+  entryComponents: [
+    ProductDetailModalComponent
+  ],
   declarations: [
     NewProductFormComponent,
     ProductListItemsComponent,
     TopSliderComponent,
-    DoubleSlidesComponent
+    DoubleSlidesComponent,
+    ProductDetailModalComponent
   ],
   exports: [
     NewProductFormComponent,
     ProductListItemsComponent,
     TopSliderComponent,
-    DoubleSlidesComponent
+    DoubleSlidesComponent,
+    ProductDetailModalComponent
   ],
   imports: [
     CommonModule,

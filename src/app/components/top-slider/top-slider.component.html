@@ -1,5 +1,5 @@
 <ion-slides [options]="slideOpts">
-  <ion-slide *ngFor="let prod of productos" (click)="redirectItem(prod.id)">
+  <ion-slide *ngFor="let prod of productos" (click)="detailModal(prod.id)">
     <ion-card>
       <img [ngClass]="{'sliderXs':sizeXs}" *ngIf="prod.foto" [src]="prod.foto" />
     </ion-card>

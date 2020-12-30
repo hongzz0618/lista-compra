@@ -48,6 +48,7 @@ export class DataLocalService {
       this.productos = favoritos;
       this.favoritoChanged.emit(this.productos.slice())
     }
+    return this.productos
   }
 
   borrarProductFavorito(product: Producto) {

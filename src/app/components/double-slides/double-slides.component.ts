@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Producto } from 'src/app/interfaces/producto.model';
 import { Router } from '@angular/router';
+import { ModalController } from '@ionic/angular';
+import { ProductDetailModalComponent } from '../product-detail-modal/product-detail-modal.component';
 
 @Component({
   selector: 'app-double-slides',
@@ -19,7 +21,7 @@ export class DoubleSlidesComponent implements OnInit {
     // centeredSlides:true
   };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.slideOpts.slidesPerView=this.slideperview
@@ -27,5 +29,18 @@ export class DoubleSlidesComponent implements OnInit {
 
   redirectItem(id) {
     this.router.navigate(["/tabs/tab1/" + id]);
+  }
+
+  async detailModal( id: string ) {
+
+    const modal = await this.modalCtrl.create({
+      component: ProductDetailModalComponent,
+      componentProps: {
+        id
+      }
+    });
+    
+    modal.present();
+  
   }
 }
