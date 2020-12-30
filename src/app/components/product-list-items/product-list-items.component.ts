@@ -14,15 +14,10 @@ export class ProductListItemsComponent implements OnInit {
   ngOnInit() { }
 
   redirectItem(id) {
-    let tab1 = "/tabs/tab1/" + id
-    let tab2 = "/tabs/tab2/" + id
-    if (this.enFavoritos) {
-      this.router.navigate([tab2,
-        { enFavoritos: this.enFavoritos }]);
-    } else {
-      this.router.navigate([tab1,
-        { enFavoritos: this.enFavoritos }]);
-    }
+
+    this.router.navigate(["/tabs/tab3/" + id,
+    { enFavoritos: this.enFavoritos }]);
+
 
   }
 

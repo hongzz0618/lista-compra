@@ -70,7 +70,7 @@ export class ProductDetailPage implements OnInit {
         handler: () => {
           console.log('Borrar de favorito');
           this.datalocalService.borrarProductFavorito(this.productoD);
-          this.router.navigate(["/tabs/tab2"]);
+          this.router.navigate(["/tabs/tab3"]);
         }
       };
 
