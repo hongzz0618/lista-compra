@@ -1,6 +1,6 @@
-import { AlertController, Platform } from '@ionic/angular';
+import { AlertController, Platform, ModalController } from '@ionic/angular';
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ListaCompraService } from '../../services/lista-compra.service';
 import { Producto } from '../../interfaces/producto.model';
 import { ActionSheetController } from '@ionic/angular';
@@ -15,10 +15,20 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 export class ProductDetailModalComponent implements OnInit {
   productoD: Producto;
   tabStatus = false
+  textLorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
+  defaultImage = "/assets/black-1072366_1920.jpg"
+  // slideOptActores = {
+  //   slidesPerView: 3.3,
+  //   freeMode: true,
+  //   spaceBetween: 0
+  // };
+
+  oculto = 150;
+
   @Input() id;
 
   constructor(
-    private activatedRoute: ActivatedRoute,
+    private modalCtrl: ModalController,
     private productoService: ListaCompraService,
     private router: Router,
     private alert: AlertController,
@@ -148,8 +158,8 @@ export class ProductDetailModalComponent implements OnInit {
 
     }
 
-
-
-
+  }
+  back() {
+    this.modalCtrl.dismiss();
   }
 }
