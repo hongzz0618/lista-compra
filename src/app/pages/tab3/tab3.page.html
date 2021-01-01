@@ -5,19 +5,32 @@
 </ion-header>
 
 <ion-content>
-  <ion-slides
+  <!-- <ion-slides
     [options]="sliderOpts"
     *ngIf="datalocalService.productos.length === 0"
   >
     <ion-slide>
       <ion-label>No hay favoritos</ion-label>
     </ion-slide>
-  </ion-slides>
+  </ion-slides> -->
 
-  <app-product-list-items
+  <!-- <app-product-list-items
     *ngIf="datalocalService.productos.length > 0"
     style="cursor: pointer"
     [enFavoritos]="true"
     [producto]="datalocalService.productos"
-  ></app-product-list-items>
+  ></app-product-list-items> -->
+
+  <ion-slides [options]="sliderOpts" (click)="ProductListModal('Lista Compra')">
+    <ion-slide>
+      <ion-icon name="list-outline" color="primary"></ion-icon>
+      <ion-label >Lista Compra</ion-label>
+    </ion-slide>
+  </ion-slides>
+  <ion-slides [options]="sliderOpts" (click)="ProductListModal('Favoritos')">
+    <ion-slide>
+      <ion-icon name="star-outline" color="warning"></ion-icon>
+      <ion-label >Favoritos</ion-label>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
