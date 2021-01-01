@@ -6,6 +6,7 @@ import { Producto } from '../../interfaces/producto.model';
 import { ActionSheetController } from '@ionic/angular';
 import { DataLocalFavoritosService } from 'src/app/services/data-local-favorito.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { DataLocalListaCompraService } from 'src/app/services/data-local-lista-compra.service';
 
 @Component({
   selector: 'app-product-detail-modal',
@@ -33,7 +34,8 @@ export class ProductDetailModalComponent implements OnInit {
     private router: Router,
     private alert: AlertController,
     private actionSheetCtrl: ActionSheetController,
-    private datalocalService: DataLocalFavoritosService,
+    private favoritoService: DataLocalFavoritosService,
+    private listaCompraService: DataLocalListaCompraService,
     private socialSharing: SocialSharing,
     private platform: Platform
   ) { }
@@ -63,73 +65,14 @@ export class ProductDetailModalComponent implements OnInit {
     })
   }
 
-  async IsFavorito() {
-    let favoritos
-    await this.datalocalService.cargarFavoritos().then(
-      res => favoritos = res
-    )
-    return favoritos
+  async guardarAFavorito() {
+    this.favoritoService.guardarFavorito(this.productoD);
   }
-  async lanzarMenu(id) {
 
-    let favoritos = await this.IsFavorito()
-    let existe = favoritos.find(p => p.id === id);
-
-    let guardarBorrarBtn;
-
-    if (existe) {
-
-      guardarBorrarBtn = {
-        text: 'Borrar Favorito',
-        icon: 'trash',
-        cssClass: 'action-dark',
-        handler: () => {
-          console.log('Borrar de favorito');
-          this.datalocalService.borrarProductFavorito(this.productoD);
-          // this.router.navigate(["/tabs/tab1"]);
-        }
-      };
-
-    } else {
-
-      guardarBorrarBtn = {
-        text: 'Favorito',
-        icon: 'star',
-        cssClass: 'action-dark',
-        handler: () => {
-          console.log('Favorito');
-          this.datalocalService.guardarFavorito(this.productoD);
-        }
-      };
-
-    }
-
-    const actionSheet = await this.actionSheetCtrl.create({
-      buttons: [
-        {
-          text: 'Compartir',
-          icon: 'share',
-          cssClass: 'action-dark',
-          handler: () => {
-            console.log('Share clicked');
-            this.compartirNoticia();
-          }
-        },
-        guardarBorrarBtn,
-        {
-          text: 'Cancelar',
-          icon: 'close',
-          role: 'cancel',
-          cssClass: 'action-dark',
-          handler: () => {
-            console.log('Cancel clicked');
-          }
-        }]
-    });
-
-    await actionSheet.present();
-
+  async guardarAListaCompra() {
+    this.listaCompraService.guardarlistaCompra(this.productoD);
   }
+
 
   compartirNoticia() {
 

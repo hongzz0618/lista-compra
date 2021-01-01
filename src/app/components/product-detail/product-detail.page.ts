@@ -1,11 +1,11 @@
 import { AlertController, Platform, ModalController } from '@ionic/angular';
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 import { ListaCompraService } from '../../services/lista-compra.service';
 import { Producto } from '../../interfaces/producto.model';
 import { ActionSheetController } from '@ionic/angular';
 import { DataLocalFavoritosService } from 'src/app/services/data-local-favorito.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { DataLocalListaCompraService } from 'src/app/services/data-local-lista-compra.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -19,15 +19,15 @@ export class ProductDetailPage implements OnInit {
 
   tabStatus = false
   constructor(
-    // private activatedRoute: ActivatedRoute,
     private productoService: ListaCompraService,
-    private router: Router,
     private alert: AlertController,
     private actionSheetCtrl: ActionSheetController,
     private datalocalService: DataLocalFavoritosService,
     private socialSharing: SocialSharing,
     private platform: Platform,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private listaCompraService: DataLocalListaCompraService,
+
   ) { }
 
   ngOnInit() {
@@ -47,7 +47,7 @@ export class ProductDetailPage implements OnInit {
           text: "Borrar",
           handler: () => {
             this.productoService.deleteProduct(this.productoD.id)
-            this.router.navigate(["/tabs/tab1"]);
+            this.back()
           }
         }]
     }).then(el => {
@@ -55,35 +55,6 @@ export class ProductDetailPage implements OnInit {
     })
   }
   async lanzarMenu() {
-
-    let guardarBorrarBtn;
-    if (this.enFavoritos) {
-
-      guardarBorrarBtn = {
-        text: 'Borrar Favorito',
-        icon: 'trash',
-        cssClass: 'action-dark',
-        handler: () => {
-          console.log('Borrar de favorito');
-          this.datalocalService.borrarProductFavorito(this.productoD);
-          this.router.navigate(["/tabs/tab3"]);
-        }
-      };
-
-    } else {
-
-      guardarBorrarBtn = {
-        text: 'Favorito',
-        icon: 'star',
-        cssClass: 'action-dark',
-        handler: () => {
-          console.log('Favorito');
-          this.datalocalService.guardarFavorito(this.productoD);
-        }
-      };
-
-    }
-
     const actionSheet = await this.actionSheetCtrl.create({
       buttons: [
         {
@@ -95,7 +66,20 @@ export class ProductDetailPage implements OnInit {
             this.compartirNoticia();
           }
         },
-        guardarBorrarBtn,
+        {
+          text: 'Borrar Favorito',
+          icon: 'trash',
+          cssClass: 'action-dark',
+          handler: () => {
+            console.log('Borrar de favorito');
+            if (this.enFavoritos) {
+              this.datalocalService.borrarProductFavorito(this.productoD);
+            } else {
+              this.listaCompraService.borrarProductlistaCompra(this.productoD);
+            }
+            this.back()
+          }
+        },
         {
           text: 'Cancelar',
           icon: 'close',
