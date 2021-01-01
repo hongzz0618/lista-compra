@@ -1,14 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab1" color="dark"></ion-back-button>
-    </ion-buttons>
     <ion-title>{{ productoD.nombre }}</ion-title>
-    <ion-buttons slot="primary">
-      <ion-button (click)="onDeleteProduct()" [ngClass]="{'esconder': tabStatus}">
-        <ion-icon name="trash" slot="icon-only"></ion-icon>
-      </ion-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -20,3 +12,15 @@
   </div>
   <ion-img *ngIf="productoD.foto" [src]="productoD.foto" class="ion-margin"></ion-img>
 </ion-card>
+
+
+<ion-footer no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="back()">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+        <ion-label class="ion-padding">Back</ion-label>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

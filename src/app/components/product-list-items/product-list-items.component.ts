@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from "@angular/core";
-import { Router } from "@angular/router";
+import { Storage } from '@ionic/storage';
+import { ModalController } from '@ionic/angular';
+import { ProductDetailPage } from '../product-detail/product-detail.page';
 
 @Component({
   selector: "app-product-list-items",
@@ -7,19 +9,58 @@ import { Router } from "@angular/router";
   styleUrls: ["./product-list-items.component.scss"],
 })
 export class ProductListItemsComponent implements OnInit {
-  @Input("producto") item: any;
+  items: any;
+  enfavoritos: any;
   @Input() type;
-  constructor(private router: Router) {
+  constructor(private storage: Storage, private modalCtrl: ModalController) {
   }
 
   ngOnInit() {
-    console.log(this.type)
+    if (this.type === "Favoritos") {
+      this.enfavoritos = true
+      this.loadFavorito()
+    } else {
+      this.enfavoritos = false
+      this.loadListaCompra()
+    }
   }
 
-  redirectItem(id) {
-    this.router.navigate([
-      "/tabs/tab3/" + id,
-      { enFavoritos: true },
-    ]);
+  async loadFavorito() {
+    let favorito = await this.storage.get('favoritos');
+    if (favorito) {
+      this.items = favorito
+    }
+  }
+
+  async loadListaCompra() {
+    let listaCompra = this.items = await this.storage.get('listaCompra');
+    if (listaCompra) {
+      this.items = listaCompra
+    }
+  }
+
+  // redirectItem(id) {
+  //   this.router.navigate([
+  //     "/tabs/tab3/" + id,
+  //     { enFavoritos: true },
+  //   ]);
+  // }
+
+  async ProductItemModal(id) {
+
+    const modal = await this.modalCtrl.create({
+      component: ProductDetailPage,
+      componentProps: {
+        id: id,
+        enFavoritos: this.enfavoritos
+      }
+    });
+
+    modal.present();
+
+  }
+
+  back() {
+    this.modalCtrl.dismiss();
   }
 }

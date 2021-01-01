@@ -1,10 +1,10 @@
-import { AlertController, Platform } from '@ionic/angular';
+import { AlertController, Platform, ModalController } from '@ionic/angular';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ListaCompraService } from '../../services/lista-compra.service';
 import { Producto } from '../../interfaces/producto.model';
 import { ActionSheetController } from '@ionic/angular';
-import { DataLocalService } from 'src/app/services/data-local.service';
+import { DataLocalFavoritosService } from 'src/app/services/data-local-favorito.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 @Component({
@@ -14,28 +14,24 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 })
 export class ProductDetailPage implements OnInit {
   productoD: Producto;
+  @Input() enFavoritos;
+  @Input() id;
+
   tabStatus = false
   constructor(
-    private activatedRoute: ActivatedRoute,
+    // private activatedRoute: ActivatedRoute,
     private productoService: ListaCompraService,
     private router: Router,
     private alert: AlertController,
     private actionSheetCtrl: ActionSheetController,
-    private datalocalService: DataLocalService,
+    private datalocalService: DataLocalFavoritosService,
     private socialSharing: SocialSharing,
-    private platform: Platform
+    private platform: Platform,
+    private modalCtrl: ModalController
   ) { }
 
   ngOnInit() {
-    this.activatedRoute.paramMap.subscribe(paramMap => {
-      if (!paramMap.has("productId")) {
-        this.router.navigate(["/tabs/tab1"]);
-        return;
-      }
-      const productId = paramMap.get("productId");
-      this.productoD = this.productoService.getProduct(productId);
-    }
-    )
+    this.productoD = this.productoService.getProduct(this.id);
   }
 
   onDeleteProduct() {
@@ -61,7 +57,7 @@ export class ProductDetailPage implements OnInit {
   async lanzarMenu() {
 
     let guardarBorrarBtn;
-    if (JSON.parse(this.activatedRoute.snapshot.params.enFavoritos)) {
+    if (this.enFavoritos) {
 
       guardarBorrarBtn = {
         text: 'Borrar Favorito',
@@ -141,9 +137,8 @@ export class ProductDetailPage implements OnInit {
       }
 
     }
-
-
-
-
+  }
+  back() {
+    this.modalCtrl.dismiss();
   }
 }

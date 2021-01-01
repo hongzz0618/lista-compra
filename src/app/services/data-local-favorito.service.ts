@@ -7,7 +7,7 @@ import { Producto } from '../interfaces/producto.model';
 @Injectable({
   providedIn: 'root'
 })
-export class DataLocalService {
+export class DataLocalFavoritosService {
 
   productos: Producto[] = [];
   favoritoChanged = new EventEmitter<Producto[]>();

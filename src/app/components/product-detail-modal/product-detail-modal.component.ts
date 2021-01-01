@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ListaCompraService } from '../../services/lista-compra.service';
 import { Producto } from '../../interfaces/producto.model';
 import { ActionSheetController } from '@ionic/angular';
-import { DataLocalService } from 'src/app/services/data-local.service';
+import { DataLocalFavoritosService } from 'src/app/services/data-local-favorito.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 @Component({
@@ -33,7 +33,7 @@ export class ProductDetailModalComponent implements OnInit {
     private router: Router,
     private alert: AlertController,
     private actionSheetCtrl: ActionSheetController,
-    private datalocalService: DataLocalService,
+    private datalocalService: DataLocalFavoritosService,
     private socialSharing: SocialSharing,
     private platform: Platform
   ) { }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataLocalService } from 'src/app/services/data-local.service';
 import { ModalController } from '@ionic/angular';
 import { ProductListItemsComponent } from '../../components/product-list-items/product-list-items.component';
 
@@ -15,7 +14,7 @@ export class Tab3Page implements OnInit {
     allowSlideNext: false
   };
 
-  constructor(public datalocalService: DataLocalService, private modalCtrl: ModalController) { }
+  constructor(private modalCtrl: ModalController) { }
 
   ngOnInit() {
   }
@@ -24,7 +23,7 @@ export class Tab3Page implements OnInit {
     const modal = await this.modalCtrl.create({
       component: ProductListItemsComponent,
       componentProps: {
-        type: type,
+        type: type
       }
     });
 
