@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from "@angular/core";
 import { Storage } from '@ionic/storage';
 import { ModalController } from '@ionic/angular';
 import { ProductDetailPage } from '../product-detail/product-detail.page';
+import { Producto } from 'src/app/interfaces/producto.model';
 
 @Component({
   selector: "app-product-list-items",
@@ -9,9 +10,14 @@ import { ProductDetailPage } from '../product-detail/product-detail.page';
   styleUrls: ["./product-list-items.component.scss"],
 })
 export class ProductListItemsComponent implements OnInit {
-  items: any;
+  items: Producto[];
   enfavoritos: any;
   @Input() type;
+
+  sliderOpts = {
+    allowSlidePrev: false,
+    allowSlideNext: false
+  };
   constructor(private storage: Storage, private modalCtrl: ModalController) {
   }
 

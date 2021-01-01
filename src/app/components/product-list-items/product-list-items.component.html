@@ -6,6 +6,11 @@
     <ion-label>{{ item.nombre }}</ion-label>
   </ion-item>
 </ion-content>
+<ion-slides [options]="sliderOpts" *ngIf="!items">
+  <ion-slide>
+    <ion-label>Añade un Producto</ion-label>
+  </ion-slide>
+</ion-slides>
 
 <ion-footer no-border>
   <ion-toolbar>
