@@ -1,26 +1,50 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>{{ page_name }}</ion-title>
     <ion-button size="small" [routerLink]="['./new-producto']" slot="end">
       <ion-icon slot="icon-only" name="add-outline"></ion-icon>
     </ion-button>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
 <ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <h3>Productos más vendidos</h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <!-- <ion-list>
-    <app-product-list-items
-      style="cursor: pointer"
-      [producto]="producto"
-      [enFavoritos]="false"
-    ></app-product-list-items>
-  </ion-list> -->
-  
-  <app-top-slider [productos]="producto" [slideperview]=1.3 [sizeXs]=false> </app-top-slider>
+  <app-top-slider [productos]="producto" [slideperview]="1" [sizeXs]="false">
+  </app-top-slider>
 
-  <app-double-slides [productos]="producto" [slideperview]=3.3 [sizeXs]=true> </app-double-slides>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <h3>Todos los Productos</h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
-  <app-top-slider [productos]="producto" [slideperview]=2.3 [sizeXs]=true> </app-top-slider>
+  <app-double-slides
+    [productos]="producto"
+    [slideperview]="3.3"
+    [sizeXs]="true"
+  >
+  </app-double-slides>
 
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col>
+        <h3>Frutas</h3>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
+  <app-double-slides
+    [productos]="producto"
+    [slideperview]="2.3"
+    [sizeXs]="true"
+  >
+  </app-double-slides>
 </ion-content>

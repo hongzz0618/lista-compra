@@ -17,11 +17,13 @@ export class TopSliderComponent implements OnInit {
 
   slideOpts = {
     slidesPerView: 1,
-    freeMode: true,
+    // freeMode: true,
+    initialSlide: 0,
+    autoplay: true,
     // centeredSlides:true
   };
 
-  constructor(private router: Router,private modalCtrl: ModalController) { }
+  constructor(private router: Router, private modalCtrl: ModalController) { }
 
   ngOnInit() {
     this.slideOpts.slidesPerView = this.slideperview
@@ -31,7 +33,7 @@ export class TopSliderComponent implements OnInit {
     this.router.navigate(["/tabs/tab1/" + id]);
   }
 
-  async detailModal( id: string ) {
+  async detailModal(id: string) {
 
     const modal = await this.modalCtrl.create({
       component: ProductDetailModalComponent,
@@ -39,9 +41,9 @@ export class TopSliderComponent implements OnInit {
         id
       }
     });
-    
+
     modal.present();
-  
+
   }
 
 }

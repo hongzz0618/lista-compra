@@ -8,7 +8,7 @@ import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
 })
 export class Tab2Page implements OnInit {
 
-  bgcolor: string = "blue"
+  speechRecognitionValue: any;
 
   constructor(private speechRecognition: SpeechRecognition) {
 
@@ -32,15 +32,23 @@ export class Tab2Page implements OnInit {
 
   }
 
-  start() {
-
-    this.speechRecognition.startListening()
+  async start() {
+    await this.speechRecognition.startListening()
       .subscribe(
         (matches: Array<string>) => {
-          this.bgcolor = matches[0];
+          // console.log(...matches)
         },
         (onerror) => console.log('error:', onerror)
       )
+    await this.speechRecognition.getSupportedLanguages()
+      .then(
+        (languages: string[]) => {
+          console.log(languages)
+          this.speechRecognitionValue = languages
+        },
+        (error) => console.log(error)
+      )
 
   }
+
 }
