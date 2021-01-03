@@ -1,4 +1,5 @@
-
+//comando  !!
+//node src/app/services/scriptImages.js > src/app/services/imagesJson.txt 
 const fs = require("fs");
 fs.readdir(
   "/home/hong/lista_compra_fitness/src/assets/productImages",
