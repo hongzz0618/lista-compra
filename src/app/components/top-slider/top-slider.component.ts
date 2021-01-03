@@ -11,7 +11,7 @@ import { ProductDetailModalComponent } from '../product-detail-modal/product-det
 export class TopSliderComponent implements OnInit {
   @Input() productos: any;
   @Input() slideperview: any;
-  @Input() sizeXs: any;
+  @Input() autoplay: any;
   @Input() enFavoritos = false;
 
 
@@ -27,6 +27,7 @@ export class TopSliderComponent implements OnInit {
 
   ngOnInit() {
     this.slideOpts.slidesPerView = this.slideperview
+    this.slideOpts.autoplay = this.autoplay
   }
 
   redirectItem(id) {

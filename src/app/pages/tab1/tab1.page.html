@@ -15,8 +15,7 @@
     </ion-row>
   </ion-grid>
 
-  <app-top-slider [productos]="producto" [slideperview]="1" [sizeXs]="false">
-  </app-top-slider>
+  <app-top-slider [productos]="producto" [slideperview]="1" [autoplay]="true"></app-top-slider>
 
   <ion-grid fixed>
     <ion-row>
@@ -29,7 +28,6 @@
   <app-double-slides
     [productos]="producto"
     [slideperview]="3.3"
-    [sizeXs]="true"
   >
   </app-double-slides>
 
@@ -41,10 +39,5 @@
     </ion-row>
   </ion-grid>
 
-  <app-double-slides
-    [productos]="producto"
-    [slideperview]="2.3"
-    [sizeXs]="true"
-  >
-  </app-double-slides>
+  <app-top-slider [productos]="producto" [slideperview]="2.3" [autoplay]="false"></app-top-slider>
 </ion-content>

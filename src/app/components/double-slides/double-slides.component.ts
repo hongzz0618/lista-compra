@@ -13,12 +13,10 @@ export class DoubleSlidesComponent implements OnInit {
 
   @Input() productos: Producto[] = [];
   @Input() slideperview: any;
-  @Input() sizeXs: any;
 
   slideOpts = {
     slidesPerView: 1,
     freeMode: true,
-    // centeredSlides:true
   };
 
   constructor(private router: Router,private modalCtrl: ModalController) { }
