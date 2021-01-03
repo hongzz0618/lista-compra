@@ -38,6 +38,13 @@
         >
       </ion-col>
     </ion-row>
+    <ion-row>
+      <ion-col size="12">
+        <ion-chip *ngFor="let categoria of productoD.categoria" color="primary">
+          <ion-label>{{ categoria }}</ion-label>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>
 

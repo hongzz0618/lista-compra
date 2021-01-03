@@ -30,18 +30,19 @@ export class NewProductFormComponent implements OnInit {
       )
   }
 
-  onAddProduct() {
+  // onAddProduct() {
 
-    this.productos.id = this.producto.length + 1
-    if (this.productos.name && this.productos.foto) {
-      let newProducto = {
-        id: this.productos.id.toString(),
-        nombre: this.productos.name,
-        foto: this.productos.foto,
-      }
-      this.productoAdded.emit(newProducto)
-      this.router.navigate(["/tabs/tab1"]);
-    }
-  }
+  //   this.productos.id = this.producto.length + 1
+  //   if (this.productos.name && this.productos.foto) {
+  //     let newProducto = {
+  //       id: this.productos.id.toString(),
+  //       nombre: this.productos.name,
+  //       foto: this.productos.foto,
+  //       categoria: ["saddas","dasda","das"]
+  //     }
+  //     this.productoAdded.emit(newProducto)
+  //     this.router.navigate(["/tabs/tab1"]);
+  //   }
+  // }
 
 }
