@@ -12,8 +12,8 @@ export class Tab1Page implements OnInit {
   page_name = "Home"
   producto: Producto[];
 
-  constructor(private productoService: ListaCompraService) {}
-  
+  constructor(private productoService: ListaCompraService) { }
+
   ngOnInit() {
     this.producto = this.productoService.getAllProducts();
     this.productoService.productsChanged

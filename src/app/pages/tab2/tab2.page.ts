@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
 
 @Component({
@@ -10,13 +10,14 @@ export class Tab2Page implements OnInit {
 
   speechRecognitionValue: any;
 
-  constructor(private speechRecognition: SpeechRecognition) {
+  constructor(private speechRecognition: SpeechRecognition, private cd: ChangeDetectorRef) {
 
   }
 
 
-  ngOnInit() {
+  ngOnInit() { }
 
+  start() {
     this.speechRecognition.hasPermission()
       .then((hasPermission: boolean) => {
 
@@ -29,26 +30,19 @@ export class Tab2Page implements OnInit {
         }
 
       });
-
-  }
-
-  async start() {
-    await this.speechRecognition.startListening()
-      .subscribe(
-        (matches: Array<string>) => {
-          // console.log(...matches)
-        },
+    let options = {
+      language: "en-US",
+      showPopup: false,
+      // showPartial: true
+    }
+    this.speechRecognition.startListening(options)
+      .subscribe(matches => {
+        this.speechRecognitionValue = matches
+        this.cd.detectChanges();
+        console.log(this.speechRecognitionValue)
+      },
         (onerror) => console.log('error:', onerror)
       )
-    await this.speechRecognition.getSupportedLanguages()
-      .then(
-        (languages: string[]) => {
-          console.log(languages)
-          this.speechRecognitionValue = languages
-        },
-        (error) => console.log(error)
-      )
-
   }
 
 }

@@ -14,7 +14,6 @@ import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
-import { OneSignal } from '@ionic-native/onesignal/ngx';
 import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
 
 @NgModule({
@@ -25,7 +24,6 @@ import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
     StatusBar,
     SplashScreen,
     SocialSharing,
-    OneSignal,
     SpeechRecognition,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
