@@ -10,6 +10,7 @@ export class Tab2Page implements OnInit {
 
   speechRecognitionValue: any;
 
+  starts: any = false;
   constructor(private speechRecognition: SpeechRecognition, private cd: ChangeDetectorRef) {
 
   }
@@ -17,7 +18,13 @@ export class Tab2Page implements OnInit {
 
   ngOnInit() { }
 
+  cancelSpeech() {
+    this.speechRecognition.stopListening();
+    this.starts = false
+
+  }
   start() {
+    this.starts = true
     this.speechRecognition.hasPermission()
       .then((hasPermission: boolean) => {
 

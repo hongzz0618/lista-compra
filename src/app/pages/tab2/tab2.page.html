@@ -12,6 +12,8 @@
         </ion-button> </ion-buttons
     ></ion-searchbar>
 
+    <button (click)="cancelSpeech()" *ngIf="starts">cancelar speech</button>
+    
     <ion-list *ngIf="speechRecognitionValue">
       <ion-list-header>
         <ion-label>Speech Recognition value:</ion-label>
