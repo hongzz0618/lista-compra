@@ -1,4 +1,4 @@
-<ion-slides [options]="slideOpts">
+<ion-slides [options]="slideOpts" (ionSlidesDidLoad)="slideDidLoad($event)">
   <ion-slide *ngFor="let prod of productos" (click)="detailModal(prod.id)">
     <ion-card>
       <img *ngIf="prod.foto" [src]="prod.foto" />

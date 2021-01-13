@@ -11,6 +11,13 @@ export class Tab1Page implements OnInit {
 
   page_name = "Home"
   producto: Producto[];
+  fruta: any;
+  carne: any;
+  comidaprincipal: any;
+  ropa: any;
+  postres: any;
+  otros: any;
+  masvendidos: any;
 
   constructor(private productoService: ListaCompraService) { }
 
@@ -22,6 +29,13 @@ export class Tab1Page implements OnInit {
           this.producto = producto;
         }
       )
+    this.fruta = this.productoService.getProductsByCategory("fruta")
+    this.carne = this.productoService.getProductsByCategory("carne")
+    this.comidaprincipal = this.productoService.getProductsByCategory("comidaprincipal")
+    this.ropa = this.productoService.getProductsByCategory("ropa")
+    this.postres = this.productoService.getProductsByCategory("postres")
+    this.otros = this.productoService.getProductsByCategory("otros")
+    this.masvendidos = this.productoService.getProductsByCategory("masvendidos")
   }
 
 }

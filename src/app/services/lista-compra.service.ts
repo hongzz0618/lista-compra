@@ -73,7 +73,6 @@ export class ListaCompraService {
     { id: "56", nombre: "zapatos adidas", foto: this.imgPath + "zapatos-adidas-min.jpg", categoria: ["ropa", "masvendidos"] },
     { id: "57", nombre: "zapatos nike", foto: this.imgPath + "zapatos-nike-min.jpg", categoria: ["ropa", "masvendidos"] },
   ]
-  private enFavoritos: any
 
   constructor(private storage: Storage, public toastController: ToastController) {
     this.cargarDatosLocal();
@@ -101,6 +100,10 @@ export class ListaCompraService {
     return this.producto.slice();
   }
 
+  getProductsByCategory(...categ1) {
+    return this.producto.filter(el => el.categoria.find(e => e === categ1[0] || e === categ1[1] || e === categ1[2]));
+  }
+
   getProduct(productId: string) {
     return {
       ...this.producto.find(item => {
@@ -110,11 +113,6 @@ export class ListaCompraService {
   }
 
   async deleteProduct(productId: string) {
-    // //borrar en favoritos
-    // this.enFavoritos = await this.storage.get('favoritos')
-    // this.enFavoritos = this.enFavoritos.filter(p => p.id !== productId);
-    // this.storage.set('favoritos', this.enFavoritos);
-    //borrar en compras
     this.producto = this.producto.filter(p => p.id !== productId);
     this.productsChanged.emit(this.producto.slice())
     this.storage.set('productos', this.producto);

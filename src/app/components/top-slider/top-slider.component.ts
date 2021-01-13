@@ -1,6 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { ModalController } from '@ionic/angular';
+import { IonSlides, ModalController } from '@ionic/angular';
 import { ProductDetailModalComponent } from '../product-detail-modal/product-detail-modal.component';
 
 @Component({
@@ -9,6 +9,7 @@ import { ProductDetailModalComponent } from '../product-detail-modal/product-det
   styleUrls: ['./top-slider.component.scss'],
 })
 export class TopSliderComponent implements OnInit {
+  @ViewChild(IonSlides, {static: false}) slides: IonSlides;
   @Input() productos: any;
   @Input() slideperview: any;
   @Input() autoplay: any;
@@ -32,6 +33,10 @@ export class TopSliderComponent implements OnInit {
 
   redirectItem(id) {
     this.router.navigate(["/tabs/tab1/" + id]);
+  }
+
+  slideDidLoad(event) {
+    this.slides.update();
   }
 
   async detailModal(id: string) {

@@ -7,6 +7,7 @@ import { ActionSheetController } from '@ionic/angular';
 import { DataLocalFavoritosService } from 'src/app/services/data-local-favorito.service';
 import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { DataLocalListaCompraService } from 'src/app/services/data-local-lista-compra.service';
+// import { TopSliderComponent } from '../top-slider/top-slider.component';
 
 @Component({
   selector: 'app-product-detail-modal',
@@ -15,15 +16,10 @@ import { DataLocalListaCompraService } from 'src/app/services/data-local-lista-c
 })
 export class ProductDetailModalComponent implements OnInit {
   productoD: Producto;
-  tabStatus = false
+  tabStatus = false;
   textLorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum"
-  defaultImage = "/assets/black-1072366_1920.jpg"
-  // slideOptActores = {
-  //   slidesPerView: 3.3,
-  //   freeMode: true,
-  //   spaceBetween: 0
-  // };
-
+  defaultImage = "/assets/black-1072366_1920.jpg";
+  parecidos: any;
   oculto = 150;
 
   @Input() id;
@@ -42,6 +38,8 @@ export class ProductDetailModalComponent implements OnInit {
 
   ngOnInit() {
     this.productoD = this.productoService.getProduct(this.id);
+    this.parecidos = this.productoService.getProductsByCategory(...this.productoD.categoria);
+    this.parecidos = this.parecidos.filter(el=> el.id!=this.id)
   }
 
   onDeleteProduct() {
