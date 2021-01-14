@@ -46,7 +46,6 @@ export class Tab2Page implements OnInit {
       .subscribe(matches => {
         this.speechRecognitionValue = matches
         this.cd.detectChanges();
-        console.log(this.speechRecognitionValue)
       },
         (onerror) => console.log('error:', onerror)
       )

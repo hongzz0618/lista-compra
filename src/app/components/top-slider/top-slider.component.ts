@@ -14,11 +14,13 @@ export class TopSliderComponent implements OnInit {
   @Input() slideperview: any;
   @Input() autoplay: any;
   @Input() enFavoritos = false;
+  @Input() freemode = false;
+
 
 
   slideOpts = {
     slidesPerView: 1,
-    // freeMode: true,
+    freeMode: false,
     initialSlide: 0,
     autoplay: true,
     // centeredSlides:true
@@ -29,13 +31,14 @@ export class TopSliderComponent implements OnInit {
   ngOnInit() {
     this.slideOpts.slidesPerView = this.slideperview
     this.slideOpts.autoplay = this.autoplay
+    this.slideOpts.freeMode = this.freemode
   }
 
   redirectItem(id) {
     this.router.navigate(["/tabs/tab1/" + id]);
   }
 
-  slideDidLoad(event) {
+  async slideDidLoad(event) {
     this.slides.update();
   }
 
