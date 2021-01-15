@@ -8,13 +8,19 @@
   <ion-slides [options]="sliderOpts" (click)="ProductListModal('Lista Compra')">
     <ion-slide>
       <ion-icon name="list-outline" color="primary"></ion-icon>
-      <ion-label >Lista Compra</ion-label>
+      <ion-label>Lista Compra</ion-label>
     </ion-slide>
   </ion-slides>
   <ion-slides [options]="sliderOpts" (click)="ProductListModal('Favoritos')">
     <ion-slide>
       <ion-icon name="star-outline" color="warning"></ion-icon>
-      <ion-label >Favoritos</ion-label>
+      <ion-label>Favoritos</ion-label>
+    </ion-slide>
+  </ion-slides>
+  <ion-slides [options]="sliderOpts" (click)="ProductListModal('Cuenta')">
+    <ion-slide>
+      <ion-icon name="accessibility-outline" color="success"></ion-icon>
+      <ion-label>Cuenta</ion-label>
     </ion-slide>
   </ion-slides>
 </ion-content>

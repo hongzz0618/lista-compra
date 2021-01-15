@@ -20,8 +20,8 @@ export class LoginPage {
   };
 
   registerUser: Usuario = {
-    email: '',
-    password: '',
+    email: 'zhouhhhh@dmp.es',
+    password: '123',
     nombre: '',
     avatar: ''
   };
@@ -50,7 +50,7 @@ export class LoginPage {
       this.navCtrl.navigateRoot('/home/tabs/tab1', { animated: true });
     } else {
       // mostrar alerta de usuario y contraseña no correctos
-      this.uiService.alertaInformativa('Usuario y contraseña no son correctos.');
+      this.uiService.alertaInformativa('Usuario o contraseña no son correctos.');
     }
 
 

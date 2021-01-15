@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { ProductListItemsComponent } from '../../components/product-list-items/product-list-items.component';
+import { CuentaComponent } from '../../components/cuenta/cuenta.component';
 
 @Component({
   selector: 'app-tab3',
@@ -19,15 +20,18 @@ export class Tab3Page implements OnInit {
   ngOnInit() {
   }
   async ProductListModal(type: string) {
-
-    const modal = await this.modalCtrl.create({
+    const modal = type === "Lista Compra" || type === "Favoritos" ? await this.modalCtrl.create({
       component: ProductListItemsComponent,
       componentProps: {
         type: type
       }
-    });
+    }) : await this.modalCtrl.create({
+      component: CuentaComponent,
+      componentProps: {
+        type: type
+      }
+    })
 
     modal.present();
-
   }
 }

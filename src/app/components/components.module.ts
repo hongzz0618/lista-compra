@@ -9,6 +9,7 @@ import { DoubleSlidesComponent } from './double-slides/double-slides.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { ProductDetailModalComponent } from './product-detail-modal/product-detail-modal.component';
 import { AvatarSelectorComponent } from './avatar-selector/avatar-selector.component';
+import { CuentaComponent } from './cuenta/cuenta.component';
 
 @NgModule({
   entryComponents: [
@@ -20,7 +21,8 @@ import { AvatarSelectorComponent } from './avatar-selector/avatar-selector.compo
     TopSliderComponent,
     DoubleSlidesComponent,
     ProductDetailModalComponent,
-    AvatarSelectorComponent
+    AvatarSelectorComponent,
+    CuentaComponent
   ],
   exports: [
     NewProductFormComponent,
@@ -28,7 +30,8 @@ import { AvatarSelectorComponent } from './avatar-selector/avatar-selector.compo
     TopSliderComponent,
     DoubleSlidesComponent,
     ProductDetailModalComponent,
-    AvatarSelectorComponent
+    AvatarSelectorComponent,
+    CuentaComponent
   ],
   imports: [
     CommonModule,
