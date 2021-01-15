@@ -4,16 +4,25 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoginPageRoutingModule } from './login-routing.module';
-
 import { LoginPage } from './login.page';
+import { Routes, RouterModule } from '@angular/router';
+import { ComponentsModule } from '../../components/components.module';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: LoginPage
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LoginPageRoutingModule
+    RouterModule.forChild(routes),
+    ComponentsModule
+
   ],
   declarations: [LoginPage]
 })

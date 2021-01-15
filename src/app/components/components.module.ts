@@ -8,6 +8,7 @@ import { TopSliderComponent } from './top-slider/top-slider.component';
 import { DoubleSlidesComponent } from './double-slides/double-slides.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { ProductDetailModalComponent } from './product-detail-modal/product-detail-modal.component';
+import { AvatarSelectorComponent } from './avatar-selector/avatar-selector.component';
 
 @NgModule({
   entryComponents: [
@@ -18,14 +19,16 @@ import { ProductDetailModalComponent } from './product-detail-modal/product-deta
     ProductListItemsComponent,
     TopSliderComponent,
     DoubleSlidesComponent,
-    ProductDetailModalComponent
+    ProductDetailModalComponent,
+    AvatarSelectorComponent
   ],
   exports: [
     NewProductFormComponent,
     ProductListItemsComponent,
     TopSliderComponent,
     DoubleSlidesComponent,
-    ProductDetailModalComponent
+    ProductDetailModalComponent,
+    AvatarSelectorComponent
   ],
   imports: [
     CommonModule,

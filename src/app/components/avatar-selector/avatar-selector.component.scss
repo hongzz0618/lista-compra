@@ -1,0 +1,9 @@
+.pick-avatar {
+    width: 130px;
+    opacity: 0.3;
+}
+
+.pick-avatar-seleccionado {
+    transition: opacity 0.5s linear;
+    opacity: 1 !important;
+}
