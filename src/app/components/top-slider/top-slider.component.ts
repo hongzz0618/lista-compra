@@ -9,7 +9,7 @@ import { ProductDetailModalComponent } from '../product-detail-modal/product-det
   styleUrls: ['./top-slider.component.scss'],
 })
 export class TopSliderComponent implements OnInit {
-  @ViewChild(IonSlides, {static: false}) slides: IonSlides;
+  @ViewChild(IonSlides, { static: false }) slides: IonSlides;
   @Input() productos: any;
   @Input() slideperview: any;
   @Input() autoplay: any;

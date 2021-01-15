@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input, ViewChild } from '@angular/core';
+import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-avatar-selector',
@@ -9,6 +10,7 @@ export class AvatarSelectorComponent implements OnInit {
 
   @Output() avatarSel = new EventEmitter<string>();
   @Input() avatarActual = 'av-1.png';
+  @ViewChild(IonSlides, { static: false }) slides: IonSlides;
 
   avatars = [
     {
@@ -51,7 +53,7 @@ export class AvatarSelectorComponent implements OnInit {
       img: 'av-10.png',
       seleccionado: false
     },
-];
+  ];
 
   avatarSlide = {
     slidesPerView: 3.5
@@ -61,11 +63,11 @@ export class AvatarSelectorComponent implements OnInit {
 
   ngOnInit() {
 
-    this.avatars.forEach( avatar => avatar.seleccionado = false );
+    this.avatars.forEach(avatar => avatar.seleccionado = false);
 
-    for ( const avatar of this.avatars ) {
+    for (const avatar of this.avatars) {
 
-      if ( avatar.img === this.avatarActual ) {
+      if (avatar.img === this.avatarActual) {
         avatar.seleccionado = true;
         break;
       }
@@ -73,11 +75,15 @@ export class AvatarSelectorComponent implements OnInit {
 
   }
 
-  seleccionarAvatar( avatar ) {
+  async slideDidLoad(event) {
+    this.slides.update();
+  }
 
-    this.avatars.forEach( av => av.seleccionado = false  );
+  seleccionarAvatar(avatar) {
+
+    this.avatars.forEach(av => av.seleccionado = false);
     avatar.seleccionado = true;
-    this.avatarSel.emit( avatar.img );
+    this.avatarSel.emit(avatar.img);
 
   }
 

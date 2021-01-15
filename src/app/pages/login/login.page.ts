@@ -15,13 +15,13 @@ export class LoginPage {
   @ViewChild('slidePrincipal') slides: IonSlides;
 
   loginUser = {
-    email: 'zhouhhhh@dmp.es',
-    password: '123'
+    email: '',
+    password: ''
   };
 
   registerUser: Usuario = {
-    email: 'zhouhhhh@dmp.es',
-    password: '123',
+    email: '',
+    password: '',
     nombre: '',
     avatar: ''
   };
