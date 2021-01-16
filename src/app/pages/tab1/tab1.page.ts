@@ -18,6 +18,13 @@ export class Tab1Page implements OnInit {
   postres: any;
   otros: any;
   masvendidos: any;
+  category: any = ["Todos", "Frutas", "Carnes", "CPrincipal", "Ropa", "Postres", "Otros"];
+
+  slideOpts = {
+    slidesPerView: 2.5,
+    centeredSlides: true,
+    slideActiveClass: 'active-slide',
+  };
 
   constructor(private productoService: ListaCompraService) { }
 

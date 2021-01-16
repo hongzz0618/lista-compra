@@ -1,90 +1,82 @@
-<!-- <ion-header>
-  <ion-toolbar>
-    <ion-title>{{ page_name }}</ion-title>
-    <ion-button size="small" [routerLink]="['./new-producto']" slot="end">
-      <ion-icon slot="icon-only" name="add-outline"></ion-icon>
-    </ion-button>
-  </ion-toolbar>
-</ion-header> -->
-<ion-content>
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col>
-        <h2>Productos más vendidos</h2>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+<ion-content fullscreen>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col>
+                <h2>Productos más vendidos</h2>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
-  <app-top-slider [productos]="producto" [slideperview]="1" [autoplay]="true"></app-top-slider>
+    <app-top-slider [productos]="producto" [slideperview]="1" [autoplay]="true"></app-top-slider>
 
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col>
-        <h3>Todos los Productos</h3>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col>
+                <h3>Todos los Productos</h3>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
-  <app-double-slides [productos]="producto" [slideperview]="3.5">
-  </app-double-slides>
+    <app-double-slides [productos]="producto" [slideperview]="3.5">
+    </app-double-slides>
 
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col>
-        <h3>Frutas</h3>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col>
+                <h3>Frutas</h3>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
-  <app-top-slider [productos]="fruta" [slideperview]="2.25" [autoplay]="false"></app-top-slider>
+    <app-top-slider [productos]="fruta" [slideperview]="2.25" [autoplay]="false"></app-top-slider>
 
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col>
-        <h3>Carnes</h3>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col>
+                <h3>Carnes</h3>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
-  <app-top-slider [productos]="carne" [slideperview]="2.5" [autoplay]="false"></app-top-slider>
+    <app-top-slider [productos]="carne" [slideperview]="2.5" [autoplay]="false"></app-top-slider>
 
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col>
-        <h3>Comida principal</h3>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col>
+                <h3>Comida principal</h3>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
-  <app-top-slider [productos]="comidaprincipal" [slideperview]="2.75" [autoplay]="false"></app-top-slider>
+    <app-top-slider [productos]="comidaprincipal" [slideperview]="2.75" [autoplay]="false"></app-top-slider>
 
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col>
-        <h3>Ropa</h3>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col>
+                <h3>Ropa</h3>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
-  <app-top-slider [productos]="ropa" [slideperview]="3" [autoplay]="false"></app-top-slider>
+    <app-top-slider [productos]="ropa" [slideperview]="3" [autoplay]="false"></app-top-slider>
 
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col>
-        <h3>Postres</h3>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col>
+                <h3>Postres</h3>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
-  <app-top-slider [productos]="postres" [slideperview]="3.25" [autoplay]="false"></app-top-slider>
+    <app-top-slider [productos]="postres" [slideperview]="3.25" [autoplay]="false"></app-top-slider>
 
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col>
-        <h3>Otros</h3>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col>
+                <h3>Otros</h3>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
-  <app-top-slider [productos]="otros" [slideperview]="3.5 " [autoplay]="false"></app-top-slider>
+    <app-top-slider [productos]="otros" [slideperview]="3.5 " [autoplay]="false"></app-top-slider>
 </ion-content>

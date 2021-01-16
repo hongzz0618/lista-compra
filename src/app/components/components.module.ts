@@ -10,6 +10,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { ProductDetailModalComponent } from './product-detail-modal/product-detail-modal.component';
 import { AvatarSelectorComponent } from './avatar-selector/avatar-selector.component';
 import { CuentaComponent } from './cuenta/cuenta.component';
+import { HelloUserComponent } from './hello-user/hello-user.component';
 
 @NgModule({
   entryComponents: [
@@ -22,7 +23,8 @@ import { CuentaComponent } from './cuenta/cuenta.component';
     DoubleSlidesComponent,
     ProductDetailModalComponent,
     AvatarSelectorComponent,
-    CuentaComponent
+    CuentaComponent,
+    HelloUserComponent
   ],
   exports: [
     NewProductFormComponent,
@@ -31,7 +33,8 @@ import { CuentaComponent } from './cuenta/cuenta.component';
     DoubleSlidesComponent,
     ProductDetailModalComponent,
     AvatarSelectorComponent,
-    CuentaComponent
+    CuentaComponent,
+    HelloUserComponent
   ],
   imports: [
     CommonModule,

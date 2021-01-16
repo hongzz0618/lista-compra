@@ -3,25 +3,26 @@
     <ion-title>Search</ion-title>
   </ion-toolbar>
 </ion-header> -->
-<ion-content>
-  <ion-toolbar class="ion-margin">
-    <ion-searchbar placeholder="Introduzca un Producto" animated debounce="700"
-      ><ion-buttons class="button ion-margin-horizontal">
-        <ion-button (click)="start()">
-          <ion-icon name="mic-outline"></ion-icon>
-        </ion-button> </ion-buttons
-    ></ion-searchbar>
+<ion-content fullscreen>
+    <ion-toolbar class="ion-margin">
+        <ion-searchbar placeholder="Introduzca un Producto" animated debounce="700">
+            <ion-buttons class="button ion-margin-horizontal">
+                <ion-button (click)="start()">
+                    <ion-icon name="mic-outline"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+        </ion-searchbar>
 
-    <button (click)="cancelSpeech()" *ngIf="starts">cancelar speech</button>
-    
-    <ion-list *ngIf="speechRecognitionValue">
-      <ion-list-header>
-        <ion-label>Speech Recognition value:</ion-label>
-      </ion-list-header>
+        <button (click)="cancelSpeech()" *ngIf="starts">cancelar speech</button>
 
-      <ion-item *ngFor="let value of speechRecognitionValue">
-        <ion-label color="primary">{{ value }}</ion-label>
-      </ion-item>
-    </ion-list>
-  </ion-toolbar>
+        <ion-list *ngIf="speechRecognitionValue">
+            <ion-list-header>
+                <ion-label>Speech Recognition value:</ion-label>
+            </ion-list-header>
+
+            <ion-item *ngFor="let value of speechRecognitionValue">
+                <ion-label color="primary">{{ value }}</ion-label>
+            </ion-item>
+        </ion-list>
+    </ion-toolbar>
 </ion-content>
