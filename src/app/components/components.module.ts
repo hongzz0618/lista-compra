@@ -11,6 +11,7 @@ import { ProductDetailModalComponent } from './product-detail-modal/product-deta
 import { AvatarSelectorComponent } from './avatar-selector/avatar-selector.component';
 import { CuentaComponent } from './cuenta/cuenta.component';
 import { HelloUserComponent } from './hello-user/hello-user.component';
+import { SegmentSlideComponent } from './segment-slide/segment-slide.component';
 
 @NgModule({
   entryComponents: [
@@ -24,7 +25,8 @@ import { HelloUserComponent } from './hello-user/hello-user.component';
     ProductDetailModalComponent,
     AvatarSelectorComponent,
     CuentaComponent,
-    HelloUserComponent
+    HelloUserComponent,
+    SegmentSlideComponent
   ],
   exports: [
     NewProductFormComponent,
@@ -34,7 +36,8 @@ import { HelloUserComponent } from './hello-user/hello-user.component';
     ProductDetailModalComponent,
     AvatarSelectorComponent,
     CuentaComponent,
-    HelloUserComponent
+    HelloUserComponent,
+    SegmentSlideComponent
   ],
   imports: [
     CommonModule,

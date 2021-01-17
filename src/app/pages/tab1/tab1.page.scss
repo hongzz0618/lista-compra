@@ -1,9 +1,27 @@
 ion-button {
-  margin: 0 13px;
+    margin: 0 13px;
 }
 
-@media (max-width: 992px){
-  h2{
-    margin-top: 6vh;
-  }
+// @media (max-width: 992px){
+//   h2{
+//     margin-top: 6vh;
+//   }
+// }
+
+// .slide-menu{
+//     background-color: rgb(22, 22, 158);
+//     color: white;
+//     .slide-categ{
+//         font-size: 1.8rem;
+//         text-transform: uppercase;
+//         padding-bottom:-20px;
+//     }
+// }
+// .active-slide{
+//     border-bottom: 3px solid;
+//     margin-bottom: 1vh;
+// }
+
+ion-segment-button{
+    font-size: 12px;
 }

@@ -1,0 +1,8 @@
+<ion-grid fixed>
+  <ion-row *ngFor="let double of productos | doubleSlide">
+    <ion-col size="6" *ngFor="let prod of double" (click)="detailModal(prod.id)">
+        <img [src]="prod.foto" />
+        <label>{{ prod.nombre}}</label>
+    </ion-col>
+  </ion-row>
+</ion-grid>
