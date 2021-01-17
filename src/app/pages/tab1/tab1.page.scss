@@ -2,11 +2,12 @@ ion-button {
     margin: 0 13px;
 }
 
-// @media (max-width: 992px){
-//   h2{
-//     margin-top: 6vh;
-//   }
-// }
+@media (max-width: 992px){
+//   h2,
+  ion-segment{
+    margin-top: 5vh;
+  }
+}
 
 // .slide-menu{
 //     background-color: rgb(22, 22, 158);

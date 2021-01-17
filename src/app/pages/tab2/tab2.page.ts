@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { SpeechRecognition } from '@ionic-native/speech-recognition/ngx';
+import { ListaCompraService } from '../../services/lista-compra.service';
 
 @Component({
   selector: 'app-tab2',
@@ -10,8 +11,9 @@ export class Tab2Page implements OnInit {
 
   speechRecognitionValue: any;
 
+  productosSearch: any;
   starts: any = false;
-  constructor(private speechRecognition: SpeechRecognition, private cd: ChangeDetectorRef) {
+  constructor(private speechRecognition: SpeechRecognition, private cd: ChangeDetectorRef, private productData: ListaCompraService) {
 
   }
 
@@ -44,8 +46,10 @@ export class Tab2Page implements OnInit {
     }
     this.speechRecognition.startListening(options)
       .subscribe(matches => {
-        this.speechRecognitionValue = matches
+        this.speechRecognitionValue = matches[0]
         this.cd.detectChanges();
+        this.productosSearch = this.productData.getAllProducts().filter(el => el.nombre === this.speechRecognitionValue)
+        debugger
       },
         (onerror) => console.log('error:', onerror)
       )

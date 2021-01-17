@@ -12,3 +12,10 @@
     max-width: 90px !important;
     max-height: 90px !important;
 }
+
+
+@media (max-width: 992px){
+    .item{
+      margin-top: 5vh;
+    }
+  }

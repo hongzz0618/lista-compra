@@ -24,5 +24,7 @@
                 <ion-label color="primary">{{ value }}</ion-label>
             </ion-item>
         </ion-list>
+
+        <app-segment-slide *ngIf="productosSearch" [productos]="productosSearch"></app-segment-slide>
     </ion-toolbar>
 </ion-content>

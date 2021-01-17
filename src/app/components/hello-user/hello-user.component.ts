@@ -12,17 +12,21 @@ export class HelloUserComponent implements OnInit {
   usuario: Usuario = {};
   constructor(private usuarioService: UsuarioService) { }
 
+  ionViewWillEnter() {
+    debugger
+    this.usuario = this.usuarioService.getUsuario();
+  }
   ngOnInit() {
     this.usuario = this.usuarioService.getUsuario();
   }
 
-  doRefresh(event) {
-    console.log('Begin async operation');
+  // doRefresh(event) {
+  //   console.log('Begin async operation');
 
-    setTimeout(() => {
-      console.log('Async operation has ended');
-      this.usuario = this.usuarioService.getUsuario();
-      event.target.complete();
-    }, 2000);
-  }
+  //   setTimeout(() => {
+  //     console.log('Async operation has ended');
+  //     this.usuario = this.usuarioService.getUsuario();
+  //     event.target.complete();
+  //   }, 2000);
+  // }
 }
