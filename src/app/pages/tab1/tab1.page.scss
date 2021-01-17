@@ -25,6 +25,7 @@ ion-button {
 ion-segment-button{
     font-size: 12px;
 }
-// ion-slides {
-//   height: 100%;
-// }
+ion-slide{
+    display: flex;
+    flex-direction: row;
+}
