@@ -23,7 +23,7 @@ export class LoginPage {
     email: '',
     password: '',
     nombre: '',
-    avatar: ''
+    avatar: 'av-1.png'
   };
 
   loginslide: any = false;

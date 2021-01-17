@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar color="primary">
-    <ion-title>{{ productoD.nombre }}</ion-title>
+    <ion-title class="capitalize">{{ productoD.nombre }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -10,7 +10,7 @@
       <ion-icon name="ellipsis-horizontal"></ion-icon>
     </ion-button>
   </div>
-  <ion-img *ngIf="productoD.foto" [src]="productoD.foto" class="ion-margin"></ion-img>
+  <ion-img [src]="productoD.foto" class="ion-margin"></ion-img>
 </ion-card>
 
 

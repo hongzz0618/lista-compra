@@ -12,16 +12,20 @@
 // }
 
 .button {
-  position: absolute;
-  right: 0;
-  margin-right: 8%;
-  ion-icon {
-    width: 25px;
-    height: 25px;
+  // position: absolute;
+  // right: 0;
+  // margin-right: 8%;
+  ion-button{
+    margin: auto;
+    ion-icon {
+      width: 40px;
+      height: 40px;
+    }
   }
+  margin-bottom: 3vh;
 }
 @media (max-width: 992px){
   ion-toolbar{
-    margin-top: 5vh;
+    margin-top: 6vh;
   }
 }

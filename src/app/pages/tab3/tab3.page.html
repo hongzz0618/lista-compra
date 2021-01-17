@@ -1,5 +1,22 @@
 <ion-content fullscreen>
-    <app-hello-user></app-hello-user>
+    <!-- <app-hello-user></app-hello-user> -->
+    <ion-grid fixed>
+        <ion-row>
+            <ion-col>
+                    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+                        <ion-refresher-content></ion-refresher-content>
+                    </ion-refresher>
+                <ion-item lines="none" class="item">
+                    <ion-avatar slot="end" class="item-avatar ion-no-margin">
+                        <img src="assets/avatars/{{ usuario.avatar }}" class="img-avatar" />
+                    </ion-avatar>
+                    <ion-label class="ion-no-margin">Hola,<br />
+                        <strong>{{ usuario.nombre }}</strong>
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
     <ion-slides [options]="sliderOpts" (click)="ProductListModal('Lista Compra')">
         <ion-slide>
             <ion-icon name="list-outline" color="primary"></ion-icon>

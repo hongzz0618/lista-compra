@@ -5,23 +5,42 @@
 </ion-header> -->
 <ion-content fullscreen>
     <ion-toolbar>
-        <ion-searchbar placeholder="Introduzca un Producto" animated debounce="700">
+        <!-- <ion-searchbar animated debounce="700">
             <ion-buttons class="button">
                 <ion-button (click)="start()">
                     <ion-icon name="mic-outline"></ion-icon>
                 </ion-button>
             </ion-buttons>
-        </ion-searchbar>
-
+        </ion-searchbar> -->
+        <ion-buttons class="button">
+        <ion-button (click)="start()">
+            <ion-icon name="mic-outline"></ion-icon>
+        </ion-button>
+    </ion-buttons>
         <button (click)="cancelSpeech()" *ngIf="starts">cancelar speech</button>
+
+        <ion-list *ngIf="!speechRecognitionValue">
+            <ion-list-header>
+                <ion-label>Más buscados..</ion-label>
+            </ion-list-header>
+            <ion-item>
+                <ion-label color="primary" (click)="changeSpeechValue($event);">Shoes</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" (click)="changeSpeechValue($event);">Pizza</ion-label>
+            </ion-item>
+            <ion-item>
+                <ion-label color="primary" (click)="changeSpeechValue($event);">Ice cream</ion-label>
+            </ion-item>
+        </ion-list>
 
         <ion-list *ngIf="speechRecognitionValue">
             <ion-list-header>
                 <ion-label>Speech Recognition value:</ion-label>
             </ion-list-header>
 
-            <ion-item *ngFor="let value of speechRecognitionValue">
-                <ion-label color="primary">{{ value }}</ion-label>
+            <ion-item>
+                <ion-label color="primary">{{ speechRecognitionValue }}</ion-label>
             </ion-item>
         </ion-list>
 

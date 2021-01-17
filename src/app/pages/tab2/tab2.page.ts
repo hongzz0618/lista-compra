@@ -48,11 +48,17 @@ export class Tab2Page implements OnInit {
       .subscribe(matches => {
         this.speechRecognitionValue = matches[0]
         this.cd.detectChanges();
-        this.productosSearch = this.productData.getAllProducts().filter(el => el.nombre === this.speechRecognitionValue)
-        debugger
+        this.productosSearch = this.productData.getAllProducts().filter(el => el.nombre.toUpperCase() === this.speechRecognitionValue.toUpperCase())
+        this.cd.detectChanges();
+        // console.log(this.productosSearch)
       },
         (onerror) => console.log('error:', onerror)
       )
   }
 
+  changeSpeechValue(event){
+    // console.log(event.target.innerHTML)
+    this.speechRecognitionValue = event.target.innerHTML;
+    this.productosSearch = this.productData.getAllProducts().filter(el => el.nombre.toUpperCase() === this.speechRecognitionValue.toUpperCase())
+  }
 }

@@ -3,12 +3,12 @@
     <ion-avatar slot="start">
       <ion-img [src]="item.foto"> </ion-img>
     </ion-avatar>
-    <ion-label>{{ item.nombre }}</ion-label>
+    <ion-label class="capitalize">{{ item.nombre }}</ion-label>
   </ion-item>
 </ion-content>
 <ion-slides [options]="sliderOpts" *ngIf="!items">
   <ion-slide>
-    <ion-label>Añade un Producto</ion-label>
+    <ion-label>Añade un producto</ion-label>
   </ion-slide>
 </ion-slides>
 

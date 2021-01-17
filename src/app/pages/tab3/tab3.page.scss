@@ -11,3 +11,25 @@ ion-icon{
     width: 105px;
     height: 105px;
 }
+
+.img-avatar {
+  width: 200px;
+}
+
+.item {
+  font-size: 18px;
+}
+
+.item-avatar {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 90px !important;
+  max-height: 90px !important;
+}
+
+
+@media (max-width: 992px){
+  .item{
+    margin-top: 5vh;
+  }
+}
