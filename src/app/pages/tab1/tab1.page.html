@@ -16,21 +16,21 @@
     </ion-slides> -->
 
     <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="segment" mode="md" color="warning">
-        <ion-segment-button value="0">
+        <ion-segment-button value="0" layout="icon-start">
             <ion-icon name="fast-food-outline"></ion-icon>
-            Food
+            <ion-label>Food</ion-label>
         </ion-segment-button>
-        <ion-segment-button value="1">
+        <ion-segment-button value="1" layout="icon-start">
             <ion-icon name="fish-outline"></ion-icon>
-            Meat
+            <ion-label>Meat</ion-label>
         </ion-segment-button>
-        <ion-segment-button value="2">
+        <ion-segment-button value="2" layout="icon-start">
             <ion-icon name="nutrition-outline"></ion-icon>
-            Postres
+            <ion-label>Postre</ion-label>
         </ion-segment-button>
-        <ion-segment-button value="3">
+        <ion-segment-button value="3" layout="icon-start">
             <ion-icon name="shirt-outline"></ion-icon>
-            Fashion
+            <ion-label>Fashion</ion-label>
         </ion-segment-button>
     </ion-segment>
 

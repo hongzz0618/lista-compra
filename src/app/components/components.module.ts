@@ -12,6 +12,7 @@ import { AvatarSelectorComponent } from './avatar-selector/avatar-selector.compo
 import { CuentaComponent } from './cuenta/cuenta.component';
 import { HelloUserComponent } from './hello-user/hello-user.component';
 import { SegmentSlideComponent } from './segment-slide/segment-slide.component';
+import { NSlidesComponent } from './n-slides/n-slides.component';
 
 @NgModule({
   entryComponents: [
@@ -26,7 +27,8 @@ import { SegmentSlideComponent } from './segment-slide/segment-slide.component';
     AvatarSelectorComponent,
     CuentaComponent,
     HelloUserComponent,
-    SegmentSlideComponent
+    SegmentSlideComponent,
+    NSlidesComponent
   ],
   exports: [
     NewProductFormComponent,
@@ -37,7 +39,8 @@ import { SegmentSlideComponent } from './segment-slide/segment-slide.component';
     AvatarSelectorComponent,
     CuentaComponent,
     HelloUserComponent,
-    SegmentSlideComponent
+    SegmentSlideComponent,
+    NSlidesComponent
   ],
   imports: [
     CommonModule,
