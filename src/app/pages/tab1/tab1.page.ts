@@ -2,6 +2,9 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ListaCompraService } from 'src/app/services/lista-compra.service';
 import { Producto } from 'src/app/interfaces/producto.model';
 import { IonSlides } from '@ionic/angular';
+import { UsuarioService } from '../../services/usuario.service';
+import { Usuario } from '../../interfaces/interfaces';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-tab1',
@@ -17,6 +20,7 @@ export class Tab1Page implements OnInit {
   fashion: any;
   postres: any;
   masvendidos: any;
+  usuario: Usuario = {};
 
   // slideOpts = {
   //   slidesPerView: 2.5,
@@ -120,7 +124,11 @@ export class Tab1Page implements OnInit {
   @ViewChild('slides', { static: true }) slider: IonSlides;
   segment = 0;
 
-  constructor(private productoService: ListaCompraService) { }
+  constructor(private productoService: ListaCompraService,private usuarioService: UsuarioService,route:ActivatedRoute) { 
+    route.params.subscribe(val => {
+      this.usuario = this.usuarioService.getUsuario();
+    });
+  }
 
   ngOnInit() {
     this.producto = this.productoService.getAllProducts();

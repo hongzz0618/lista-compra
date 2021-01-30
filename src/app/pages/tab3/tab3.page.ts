@@ -22,6 +22,7 @@ export class Tab3Page implements OnInit {
   constructor(private modalCtrl: ModalController,private usuarioService: UsuarioService) { }
 
   ngOnInit() {this.usuario = this.usuarioService.getUsuario();}
+  
   async ProductListModal(type: string) {
     const modal = type === "Lista Compra" || type === "Favoritos" ? await this.modalCtrl.create({
       component: ProductListItemsComponent,
@@ -39,12 +40,7 @@ export class Tab3Page implements OnInit {
     .then((data) => {
       this.ngOnInit();
     });
+
     modal.present();
-  }
-  doRefresh(event) {
-    console.log('Begin async operation');
-      console.log('Async operation has ended');
-      this.usuario = this.usuarioService.getUsuario();
-      event.target.complete();
   }
 }
