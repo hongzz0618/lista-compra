@@ -1,6 +1,10 @@
 <ion-content fullscreen>
-    <app-hello-user [usuario]="usuario"></app-hello-user>
     <ion-grid fixed>
+        <ion-row>
+            <ion-col>
+                <app-hello-user [usuario]="usuario"></app-hello-user>
+            </ion-col>
+        </ion-row>
         <ion-row>
             <ion-col>
                 <h2>Productos más vendidos</h2>
@@ -8,13 +12,7 @@
         </ion-row>
     </ion-grid>
 
-    <app-top-slider [productos]="producto" [slideperview]="1" [autoplay]="true"></app-top-slider>
-
-    <!-- <ion-slides [options]="slideOpts" class="slide-menu">
-        <ion-slide *ngFor="let categ of category">
-            <h4 class="slide-categ">{{ categ }}</h4>
-        </ion-slide>
-    </ion-slides> -->
+    <app-top-slider [productos]="masvendidos" [slideperview]="1" [autoplay]="true"></app-top-slider>
 
     <ion-segment (ionChange)="segmentChanged($event)" [(ngModel)]="segment" mode="md" color="warning">
         <ion-segment-button value="0">

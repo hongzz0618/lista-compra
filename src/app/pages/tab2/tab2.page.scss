@@ -1,29 +1,24 @@
-// ion-buttons {
-//   width: 100%;
-//   height: 100%;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-// ion-button,
-// ion-icon {
-//   width: 100%;
-//   height: 100%;
-// }
-
 .button {
-  // position: absolute;
-  // right: 0;
-  // margin-right: 8%;
   ion-button{
     margin: auto;
     ion-icon {
+      color: black;
       width: 40px;
       height: 40px;
     }
   }
   margin-bottom: 3vh;
 }
+
+ion-content {
+  --background: none;
+  background-image: url('https://www.wallpapertip.com/wmimgs/50-508379_blue-fade-background-wallpaper-background-image-clean.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
 @media (max-width: 992px){
   ion-toolbar{
     margin-top: 6vh;

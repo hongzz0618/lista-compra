@@ -39,3 +39,8 @@
 *{
     font-family: 'Open Sans', sans-serif;
 }
+
+.nobackground{
+    --background: none;
+    background: rgba(255,255,255,0);
+}

@@ -27,6 +27,13 @@ ion-icon{
   max-height: 90px !important;
 }
 
+ion-content {
+  --background: none;
+  background-image: url('https://www.wallpapertip.com/wmimgs/50-508379_blue-fade-background-wallpaper-background-image-clean.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 @media (max-width: 992px){
   .item{

@@ -9,24 +9,18 @@ ion-button {
   }
 }
 
-// .slide-menu{
-//     background-color: rgb(22, 22, 158);
-//     color: white;
-//     .slide-categ{
-//         font-size: 1.8rem;
-//         text-transform: uppercase;
-//         padding-bottom:-20px;
-//     }
-// }
-// .active-slide{
-//     border-bottom: 3px solid;
-//     margin-bottom: 1vh;
-// }
-
 ion-segment-button{
     font-size: 12px;
 }
 ion-slide{
     display: flex;
     flex-direction: row;
+}
+
+ion-content {
+  --background: none;
+  background-image: url('https://www.wallpapertip.com/wmimgs/50-508379_blue-fade-background-wallpaper-background-image-clean.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
