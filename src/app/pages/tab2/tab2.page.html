@@ -8,12 +8,13 @@
             </ion-buttons>
         </ion-searchbar> -->
         <ion-buttons class="button">
-        <ion-button (click)="start()">
+        <ion-button (click)="start()" *ngIf="!starts">
             <ion-icon name="mic-outline"></ion-icon>
         </ion-button>
+        <ion-button (click)="cancelSpeech()" *ngIf="starts">
+            <ion-icon name="close-circle-outline"></ion-icon>
+        </ion-button>
     </ion-buttons>
-        <button (click)="cancelSpeech()" *ngIf="starts">cancelar speech</button>
-
         <ion-list *ngIf="!speechRecognitionValue" class="nobackground" lines="none">
             <ion-list-header>
                 <ion-label>Más buscados..</ion-label>
