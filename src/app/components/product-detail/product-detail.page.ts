@@ -77,7 +77,6 @@ export class ProductDetailPage implements OnInit {
             } else {
               this.listaCompraService.borrarProductlistaCompra(this.productoD);
             }
-            window.location.reload();
           }
         },
         {

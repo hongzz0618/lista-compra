@@ -42,26 +42,6 @@ export class ProductDetailModalComponent implements OnInit {
     this.parecidos = this.parecidos.filter(el=> el.id!=this.id)
   }
 
-  onDeleteProduct() {
-    this.alert.create({
-      header: "¿Estás seguro?",
-      message: "¿quieres borrar este producto de la lista de compra?",
-      buttons: [
-        {
-          text: "Cancelar",
-          role: "cancelar"
-        },
-        {
-          text: "Borrar",
-          handler: () => {
-            this.productoService.deleteProduct(this.productoD.id)
-            this.router.navigate(["/tabs/tab1"]);
-          }
-        }]
-    }).then(el => {
-      el.present();
-    })
-  }
 
   async guardarAFavorito() {
     this.favoritoService.guardarFavorito(this.productoD);

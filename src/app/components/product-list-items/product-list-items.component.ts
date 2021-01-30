@@ -34,14 +34,14 @@ export class ProductListItemsComponent implements OnInit {
   async loadFavorito() {
     let favorito = await this.storage.get('favoritos');
     if (favorito) {
-      this.items = favorito
+      this.items = favorito;
     }
   }
 
   async loadListaCompra() {
     let listaCompra = this.items = await this.storage.get('listaCompra');
     if (listaCompra) {
-      this.items = listaCompra
+      this.items = listaCompra;
     }
   }
 
@@ -60,6 +60,10 @@ export class ProductListItemsComponent implements OnInit {
         id: id,
         enFavoritos: this.enfavoritos
       }
+    });
+    modal.onDidDismiss()
+    .then((data) => {
+      this.ngOnInit();
     });
 
     modal.present();
