@@ -12,7 +12,7 @@
 Thumbs.db
 UserInterfaceState.xcuserstate
 $RECYCLE.BIN/
-
+*firebase*
 *.log
 log.txts
 npm-debug.log*
@@ -29,3 +29,4 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+/.firebase
